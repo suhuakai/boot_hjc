@@ -1,20 +1,32 @@
 package com.tg.api.common.constant;
 
 
+import java.util.Random;
+
 public class ConstantConfig {
 
     public final static String HTTP_SESSION_ID = "JSESSIONID";
-    /**
-     * 用户对象
-     */
-    public final static String SESSION_USER_INFO = "sessionUserInfo";
 
-    public  static Integer getUUID(){
-        Integer random =0 ;
-        for(int j = 0; j< 100; j++){
-            random =(int)((Math.random()*9+1)*100000);
+    public  static int getUUID(){
+        int[] array = {0,1,2,3,4,5,6,7,8,9};
+        Random rand = new Random();
+        for (int i = 10; i > 1; i--) {
+            int index = rand.nextInt(i);
+            int tmp = array[index];
+            array[index] = array[i - 1];
+            array[i - 1] = tmp;
         }
-        return  random;
+        int result = 0;
+        for(int i = 0; i < 6; i++){
+            result = array[i];
+            System.out.print(array[i]);
+        }
+        System.out.print("----"+result);
+        return  result;
+    }
+
+    public static void main(String[] args){
+       getUUID();
     }
 
     /**
