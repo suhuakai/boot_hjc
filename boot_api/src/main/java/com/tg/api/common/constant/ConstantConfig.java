@@ -23,8 +23,9 @@ public class ConstantConfig {
     public enum WalletType {
         goldPool(1, "金矿池"),
         silverPool(2, "银矿池"),
-        contributionPool(3, "贡献池")
-        ;
+        contributionPool(3, "贡献池"),
+        platformCoin(4,"平台币"),
+        balance(5,"余额") ;
 
         private Integer type;
 
