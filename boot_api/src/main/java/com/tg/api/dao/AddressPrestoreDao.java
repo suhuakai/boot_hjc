@@ -3,6 +3,7 @@ package com.tg.api.dao;
 import com.tg.api.entity.AddressPrestoreEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 
 /**
  * 
@@ -13,5 +14,9 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface AddressPrestoreDao extends BaseMapper<AddressPrestoreEntity> {
-	
+
+
+
+    @Select("SELECT * from address_prestore where coin_id = #{coinId} AND status = 'yes' limit 1")
+    AddressPrestoreEntity getAddressPrestore(Integer coinId);
 }

@@ -3,29 +3,29 @@ package com.tg.api.controller;
 import com.tg.api.common.bitcoin.BitWallet;
 import com.tg.api.common.bitcoin.BitcoinWalletUtils;
 import com.tg.api.common.constant.ConstantCache;
-import com.tg.api.common.constant.ConstantCode;
 import com.tg.api.common.constant.ConstantConfig;
 import com.tg.api.common.exception.RRException;
 import com.tg.api.common.redis.RedisConfigService;
 import com.tg.api.common.utils.LocalAssert;
 import com.tg.api.common.utils.Md5;
 import com.tg.api.common.utils.R;
-import com.tg.api.common.validator.Assert;
-import com.tg.api.dto.LoginDto;
 import com.tg.api.entity.UserEntity;
+import com.tg.api.service.SequenceService;
 import com.tg.api.service.UserService;
 import com.tg.api.vo.UserVo;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 @RestController
 @RequestMapping(value = "/login")
@@ -37,6 +37,9 @@ public class LoginController extends BaseController {
 
     @Autowired
     RedisConfigService redisConfigService;
+
+    @Autowired
+    SequenceService sequenceService;
 
     /**
      * 登录接口
@@ -90,9 +93,9 @@ public class LoginController extends BaseController {
      */
     @RequestMapping("/getWallet")
     public R getWallet() {
-        Integer random = ConstantConfig.getUUID();
+
         UserEntity userEntity = new UserEntity();
-        userEntity.setId(random);
+        userEntity.setId(sequenceService.nextval("user_id"));
         BitWallet bitWallet = BitcoinWalletUtils.createWallet();
         userEntity.setMnemonic(bitWallet.getMnemonic());
         userEntity.setDate(LocalDateTime.now());
@@ -108,9 +111,9 @@ public class LoginController extends BaseController {
      * @return
      */
     @RequestMapping("/register")
-    public R register(@RequestBody  UserVo userVo) {
+    public synchronized R register(@RequestBody  UserVo userVo) {
         valiData(userVo);
-        LocalAssert.notNull(userVo.getIdentityCard(), "邀请码不能为空");
+        LocalAssert.notNull(userVo.getIdentityCard(), "请输入邀请码");
         //邀请码  用户id
          userService.Register(userVo);
         return R.ok();
@@ -135,6 +138,7 @@ public class LoginController extends BaseController {
      */
     public  void valiData(UserVo userVo){
         LocalAssert.notNull(userVo.getId(), "矿工ID不能为空");
+        LocalAssert.notNull(userVo.getName(), "请输入昵称");
         LocalAssert.notNull(userVo.getMnemonic(), "助记词不能为空");
         LocalAssert.notNull(userVo.getPassword(), "设置登录密码不能为空");
         LocalAssert.notNull(userVo.getConfirmPwd(), "确认登录密码不能为空");

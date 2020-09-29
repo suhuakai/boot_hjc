@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4e9ae817-685c-46eb-9f7a-88093e9b8584" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$PROJECT_DIR$/../../apache-maven-3.6.3" />
+        <option name="userSettingsFile" value="D:\apache-maven-3.6.3\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1i5seUkAWVFDlwTnvAwGHW8QNVZ" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+    <option name="sortByType" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/boot_hjc" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.tg.api.dao" />
+      <recent name="com.tg.api.controller" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\project\boot_hjc\boot_api\src\main\java\com\tg\api\common" />
+      <recent name="D:\project\boot_hjc\boot_api\src\main\java\com\tg\api\controller" />
+      <recent name="D:\project\boot_hjc\boot_api\src\main\java\com\tg\api" />
+      <recent name="D:\project\boot_hjc\boot_api\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BootApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="boot_api" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.tg.api.BootApiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4e9ae817-685c-46eb-9f7a-88093e9b8584" name="Default Changelist" comment="" />
+      <created>1601208883080</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1601208883080</updated>
+      <workItem from="1601208884755" duration="1335000" />
+      <workItem from="1601217591260" duration="2947000" />
+      <workItem from="1601257924426" duration="12979000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1601363671105">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1601363671104" />
+    <state x="770" y="439" key="Github.CreateGistDialog" timestamp="1601365269898">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="770" y="439" key="Github.CreateGistDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601365269898" />
+    <state x="831" y="417" width="568" height="246" key="Github.ShareDialog" timestamp="1601364192448">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="831" y="417" width="568" height="246" key="Github.ShareDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601364192448" />
+    <state width="1859" height="279" key="GridCell.Tab.0.bottom" timestamp="1601210224768">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1859" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601210224768" />
+    <state width="1859" height="279" key="GridCell.Tab.0.center" timestamp="1601210224768">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1859" height="279" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601210224768" />
+    <state width="1859" height="279" key="GridCell.Tab.0.left" timestamp="1601210224768">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1859" height="279" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601210224768" />
+    <state width="1859" height="279" key="GridCell.Tab.0.right" timestamp="1601210224768">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1859" height="279" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601210224768" />
+    <state x="461" y="164" key="SettingsEditor" timestamp="1601365304135">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1601365304135" />
+    <state x="593" y="180" key="new project wizard" timestamp="1601218876561">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="593" y="180" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1601218876561" />
+  </component>
+</project>

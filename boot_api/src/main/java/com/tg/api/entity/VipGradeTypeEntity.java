@@ -13,11 +13,11 @@ import java.time.LocalDateTime;
  * 
  * @author Amy
  * @email 411382846@qq.com
- * @date 2020-09-27 20:25:05
+ * @date 2020-09-29 13:21:15
  */
 @Data
-@TableName("coin")
-public class CoinEntity implements Serializable {
+@TableName("vip_grade_type")
+public class VipGradeTypeEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -26,34 +26,36 @@ public class CoinEntity implements Serializable {
 	@TableId
 	private Integer id;
 	/**
-	 * 
+	 * 等级名称
 	 */
 	private String name;
 	/**
-	 * 
+	 * 一代推荐奖励
 	 */
-	private String status;
+	private BigDecimal recommendOneRate;
 	/**
-	 * 手续费
+	 * 签到奖励
 	 */
-	private BigDecimal fee;
+	private BigDecimal sign;
 	/**
-	 * 
+	 * 价值
 	 */
-	private Integer sortIndex;
+	private BigDecimal worth;
 	/**
-	 * 
+	 * 消耗福豆
 	 */
-	private BigDecimal interiorFee;
+	private BigDecimal consumeBlessingBean;
 	/**
-	 * 是否划转
+	 * 消耗余额
 	 */
-	private String isTrans;
+	private BigDecimal consumeBalance;
 	/**
-	 * 划转手续费
+	 * 二代推荐奖励
 	 */
-	private BigDecimal transFee;
-
-	private Integer walletTypeId;
+	private BigDecimal recommendTwoRate;
+	/**
+	 * 签到次数
+	 */
+	private Integer signDay;
 
 }

@@ -18,5 +18,11 @@ public interface WalletService extends IService<WalletEntity> {
     PageUtils queryPage(Map<String, Object> params);
 
     WalletEntity selectByUserId(Integer upUserId, Integer type);
+
+    void reduceWalletBalance(WalletEntity walletEntity);
+
+    void increaseWalletBalance(WalletEntity walletEntity);
+
+    WalletEntity getLock(Integer id);
 }
 

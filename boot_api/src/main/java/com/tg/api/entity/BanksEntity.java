@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
-import java.math.BigDecimal;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -13,11 +12,11 @@ import java.time.LocalDateTime;
  * 
  * @author Amy
  * @email 411382846@qq.com
- * @date 2020-09-27 20:25:05
+ * @date 2020-09-29 13:21:15
  */
 @Data
-@TableName("coin")
-public class CoinEntity implements Serializable {
+@TableName("banks")
+public class BanksEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -26,34 +25,28 @@ public class CoinEntity implements Serializable {
 	@TableId
 	private Integer id;
 	/**
-	 * 
+	 * 姓名
 	 */
 	private String name;
+	/**
+	 * 银行类型
+	 */
+	private String banksType;
+	/**
+	 * 子行
+	 */
+	private String banksSonType;
+	/**
+	 * 卡号
+	 */
+	private String cardNumber;
 	/**
 	 * 
 	 */
 	private String status;
 	/**
-	 * 手续费
-	 */
-	private BigDecimal fee;
-	/**
 	 * 
 	 */
-	private Integer sortIndex;
-	/**
-	 * 
-	 */
-	private BigDecimal interiorFee;
-	/**
-	 * 是否划转
-	 */
-	private String isTrans;
-	/**
-	 * 划转手续费
-	 */
-	private BigDecimal transFee;
-
-	private Integer walletTypeId;
+	private LocalDateTime date;
 
 }

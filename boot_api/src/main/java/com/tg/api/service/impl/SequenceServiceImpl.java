@@ -17,13 +17,12 @@ import com.tg.api.service.SequenceService;
 public class SequenceServiceImpl extends ServiceImpl<SequenceDao, SequenceEntity> implements SequenceService {
 
     @Override
-    public PageUtils queryPage(Map<String, Object> params) {
-        IPage<SequenceEntity> page = this.page(
-                new Query<SequenceEntity>().getPage(params),
-                new QueryWrapper<SequenceEntity>()
-        );
-
-        return new PageUtils(page);
+    public Integer nextval(String name) {
+        return baseMapper.nextval(name);
     }
 
+    @Override
+    public Integer currval(String name) {
+        return baseMapper.currval(name);
+    }
 }

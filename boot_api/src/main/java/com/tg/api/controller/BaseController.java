@@ -2,14 +2,11 @@ package com.tg.api.controller;
 
 import com.google.code.kaptcha.Producer;
 import com.tg.api.common.constant.ConstantCache;
-import com.tg.api.common.constant.ConstantCode;
 import com.tg.api.common.exception.RRException;
-import com.tg.api.common.note.utils.NoteUtils;
 import com.tg.api.common.qiniuyun.Qiniuyun;
 import com.tg.api.common.redis.RedisConfigService;
 import com.tg.api.common.utils.Base64Util;
 import com.tg.api.common.utils.R;
-import com.tg.api.common.utils.RegularExpressionUtil;
 import com.tg.api.common.validator.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

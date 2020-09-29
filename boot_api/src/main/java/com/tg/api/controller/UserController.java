@@ -1,10 +1,8 @@
 package com.tg.api.controller;
 
-import com.tg.api.common.constant.ConstantCache;
 import com.tg.api.common.redis.RedisConfigService;
 import com.tg.api.common.utils.LocalAssert;
 import com.tg.api.common.utils.R;
-import com.tg.api.entity.UserEntity;
 import com.tg.api.service.UserService;
 import lombok.Data;
 import lombok.extern.log4j.Log4j2;

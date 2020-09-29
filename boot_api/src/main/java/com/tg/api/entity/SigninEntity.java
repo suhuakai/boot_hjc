@@ -13,47 +13,37 @@ import java.time.LocalDateTime;
  * 
  * @author Amy
  * @email 411382846@qq.com
- * @date 2020-09-27 20:25:05
+ * @date 2020-09-29 13:21:15
  */
 @Data
-@TableName("coin")
-public class CoinEntity implements Serializable {
+@TableName("signIn")
+public class SigninEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * 
+	 * 签到主id
 	 */
 	@TableId
-	private Integer id;
+	private Integer signId;
 	/**
-	 * 
+	 * 用户id
 	 */
-	private String name;
+	private Integer userId;
 	/**
-	 * 
+	 * 签到日期
 	 */
-	private String status;
+	private LocalDateTime signDate;
 	/**
-	 * 手续费
+	 * 签到金额
 	 */
-	private BigDecimal fee;
+	private BigDecimal signBalance;
 	/**
-	 * 
+	 * 签到类型   1 签到   2 关注  3 浏览
 	 */
-	private Integer sortIndex;
+	private String signType;
 	/**
-	 * 
+	 * 钱包类型 id
 	 */
-	private BigDecimal interiorFee;
-	/**
-	 * 是否划转
-	 */
-	private String isTrans;
-	/**
-	 * 划转手续费
-	 */
-	private BigDecimal transFee;
-
 	private Integer walletTypeId;
 
 }

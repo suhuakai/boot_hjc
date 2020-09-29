@@ -26,4 +26,10 @@ public class AddressPrestoreServiceImpl extends ServiceImpl<AddressPrestoreDao, 
         return new PageUtils(page);
     }
 
+
+
+    @Override
+    public AddressPrestoreEntity getAddressPrestore(Integer coinId) {
+        return baseMapper.getAddressPrestore(coinId);
+    }
 }

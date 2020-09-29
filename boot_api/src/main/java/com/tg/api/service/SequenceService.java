@@ -15,6 +15,9 @@ import java.util.Map;
  */
 public interface SequenceService extends IService<SequenceEntity> {
 
-    PageUtils queryPage(Map<String, Object> params);
+
+    Integer currval(String name);
+
+    Integer nextval(String name);
 }
 

@@ -3,6 +3,7 @@ package com.tg.api.dao;
 import com.tg.api.entity.SequenceEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 
 /**
  * 
@@ -13,5 +14,11 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface SequenceDao extends BaseMapper<SequenceEntity> {
-	
+
+    @Select("select currval(#{name})")
+    Integer currval(String name);
+
+    @Select("select nextval(#{name})")
+    Integer nextval(String name);
+
 }

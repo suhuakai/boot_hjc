@@ -13,11 +13,11 @@ import java.time.LocalDateTime;
  * 
  * @author Amy
  * @email 411382846@qq.com
- * @date 2020-09-27 20:25:05
+ * @date 2020-09-29 13:21:15
  */
 @Data
-@TableName("coin")
-public class CoinEntity implements Serializable {
+@TableName("user_earnings")
+public class UserEarningsEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -26,34 +26,30 @@ public class CoinEntity implements Serializable {
 	@TableId
 	private Integer id;
 	/**
-	 * 
+	 * 数量
 	 */
-	private String name;
+	private BigDecimal number;
 	/**
-	 * 
+	 * 用户id
 	 */
-	private String status;
+	private Integer userId;
 	/**
-	 * 手续费
+	 * 创建时间
 	 */
-	private BigDecimal fee;
+	private LocalDateTime date;
 	/**
-	 * 
+	 * 钱包类型
 	 */
-	private Integer sortIndex;
-	/**
-	 * 
-	 */
-	private BigDecimal interiorFee;
-	/**
-	 * 是否划转
-	 */
-	private String isTrans;
-	/**
-	 * 划转手续费
-	 */
-	private BigDecimal transFee;
-
 	private Integer walletTypeId;
+	/**
+	 * 注册  推荐收益
+	 */
+	private String type;
+	/**
+	 * 未结算，已结算
+	 */
+	private String settleStatus;
+
+	private Integer upUserId;
 
 }

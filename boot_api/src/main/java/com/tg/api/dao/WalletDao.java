@@ -18,4 +18,13 @@ public interface WalletDao extends BaseMapper<WalletEntity> {
 
     @Select("select * from wallet  where user_id =#{userId} and wallet_type_id =#{type}")
     WalletEntity selectByUserId(@Param("userId") Integer userId, @Param("type") Integer type);
+
+    @Select("SELECT * from wallet where id = #{id} for UPDATE")
+    WalletEntity getLock(Integer id);
+
+    @Select("update  wallet set balance = balance - #{balance} where id = #{id}")
+    void reduceWalletBalance(WalletEntity walletEntity);
+
+    @Select("update  wallet set balance = balance + #{balance} where id = #{id}")
+    void increaseWalletBalance(WalletEntity walletEntity);
 }

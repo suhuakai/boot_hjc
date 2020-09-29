@@ -31,4 +31,20 @@ public class WalletServiceImpl extends ServiceImpl<WalletDao, WalletEntity> impl
         return baseMapper.selectByUserId(upUserId,type);
     }
 
+
+    @Override
+    public WalletEntity getLock(Integer id) {
+        return baseMapper.getLock(id);
+    }
+
+    @Override
+    public void reduceWalletBalance(WalletEntity walletEntity) {
+        baseMapper.reduceWalletBalance(walletEntity);
+    }
+
+    @Override
+    public void increaseWalletBalance(WalletEntity walletEntity) {
+        baseMapper.increaseWalletBalance(walletEntity);
+    }
+
 }

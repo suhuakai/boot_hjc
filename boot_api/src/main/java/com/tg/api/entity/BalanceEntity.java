@@ -13,47 +13,25 @@ import java.time.LocalDateTime;
  * 
  * @author Amy
  * @email 411382846@qq.com
- * @date 2020-09-27 20:25:05
+ * @date 2020-09-29 13:21:15
  */
 @Data
-@TableName("coin")
-public class CoinEntity implements Serializable {
+@TableName("balance")
+public class BalanceEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * 
+	 * 全局总金额id
 	 */
 	@TableId
-	private Integer id;
+	private Integer balanceId;
 	/**
-	 * 
+	 * 总金额
 	 */
-	private String name;
+	private BigDecimal balanceMoney;
 	/**
-	 * 
+	 * 钱包类型
 	 */
-	private String status;
-	/**
-	 * 手续费
-	 */
-	private BigDecimal fee;
-	/**
-	 * 
-	 */
-	private Integer sortIndex;
-	/**
-	 * 
-	 */
-	private BigDecimal interiorFee;
-	/**
-	 * 是否划转
-	 */
-	private String isTrans;
-	/**
-	 * 划转手续费
-	 */
-	private BigDecimal transFee;
-
 	private Integer walletTypeId;
 
 }

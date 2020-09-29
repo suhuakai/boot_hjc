@@ -1,9 +1,9 @@
 spring:
   datasource:
     druid:
-      url: "jdbc:mysql://119.45.240.149:3306/base_pritice?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useUnicode=true&allowMultiQueries=true&useSSL=false&autoReconnect=true&failOverReadOnly=false&serverTimezone=UTC"
-      username: root
-      password: sunhua123...
+      url: "jdbc:mysql://159.138.33.119:3306/hjs?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useUnicode=true&allowMultiQueries=true&useSSL=false&autoReconnect=true&failOverReadOnly=false&serverTimezone=UTC"
+      username: hjs
+      password: yunaibo520!@
       driver-class-name: com.mysql.jdbc.Driver
       initial-size: 10
       max-active: 50
