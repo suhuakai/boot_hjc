@@ -16,5 +16,7 @@ import java.util.Map;
 public interface WithdrawService extends IService<WithdrawEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    WithdrawEntity insert(WithdrawEntity withdrawEntity);
 }
 

@@ -1,8 +1,10 @@
 package com.tg.api.controller;
 
+import com.tg.api.common.utils.LocalAssert;
 import com.tg.api.common.utils.PageUtils;
 import com.tg.api.common.utils.R;
 import com.tg.api.service.SigninService;
+import com.tg.api.vo.SignInVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,4 +36,28 @@ public class SigninController {
         return R.ok(page);
     }
 
+    /**
+     * 签到
+     * @return
+     */
+    @RequestMapping("/clickSign")
+    public R clickSign(Integer userId,Integer signType){
+        LocalAssert.notNull(userId,"用户ID不能为空");
+        signinService.clickSign(userId,signType);
+        return  R.ok();
+    }
+
+
+    /**
+     * 签到详情
+     * @param userId
+     * @param signType
+     * @return
+     */
+    @RequestMapping("/getByUserId")
+    public R getByUserId(Integer userId,Integer signType){
+        LocalAssert.notNull(userId,"用户ID不能为空");
+       Map<String,Object> map =signinService.getByUserId(userId,signType);
+        return  R.ok(map);
+    }
 }

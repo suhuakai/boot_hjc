@@ -8,7 +8,6 @@ import com.tg.api.controller.UserController;
 import com.tg.api.entity.*;
 import com.tg.api.service.*;
 import com.tg.api.vo.UserVo;
-import org.apache.catalina.User;
 import org.apache.commons.lang3.StringUtils;
 import org.bitcoinj.core.Coin;
 import org.springframework.beans.BeanUtils;
@@ -87,14 +86,14 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
         user.setUpUserId(Integer.valueOf(user.getIdentityCard()));
         user.setIdentityCard(user.getId() + "");
         user.setDate(LocalDateTime.now());
-        user.setUpUserId(userUp.getId());
+      //  user.setUpUserId(userUp.getId());
         user.setGrade(userUp.getGrade() + 1);
         user.setGradeUrl(userUp.getGradeUrl() + "-" + user.getId());
 
         // 初始发钱包
         List<WalletTypeEntity> walletTypeEntityList = walletTypeService.list();
         walletTypeEntityList.forEach(f -> {
-            if (f.getId() == 1 || f.getId() == 2) {
+            if (f.getId() == 1 || f.getId() == 2) {  //钱包或者余额
                 List<CoinEntity> coinEntityList = coinService.list(new QueryWrapper<CoinEntity>().eq("wallet_type_id", f.getId()));
                 coinEntityList.forEach(c -> {
                     AddressPrestoreEntity add = addressPrestoreService.getAddressPrestore(c.getId());
@@ -145,11 +144,12 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
         // 推荐奖励
         UserEarningsEntity earTj = new UserEarningsEntity();
         earTj.setDate(LocalDateTime.now());
-        earTj.setUserId(user.getId());
+        earTj.setUserId(userUp.getId());
         earTj.setNumber(new BigDecimal("25"));
         earTj.setSettleStatus("no");
-        earTj.setType("register");
-        earTj.setUpUserId(userUp.getId());
+        earTj.setType("recommend");
+        earTj.setUpUserId(user.getId());  //下级
+
         if (balanceEntity.getBalanceMoney().compareTo(new BigDecimal("25")) < 0) {
             earTj.setWalletTypeId(4);
             balanceEntity.setBalanceMoney(balanceEntity.getBalanceMoney().subtract(new BigDecimal(25)));

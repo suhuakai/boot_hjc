@@ -33,11 +33,14 @@ public class ConstantConfig {
      * 钱包类型
      */
     public enum WalletType {
-        goldPool(1, "金矿池"),
-        silverPool(2, "银矿池"),
-        contributionPool(3, "贡献池"),
-        platformCoin(4,"平台币"),
-        balance(5,"余额") ;
+        balance(1,"余额"),
+        platformCoin(2,"平台币"),
+        goldPool(3, "金矿池"),
+        silverPool(4, "银矿池"),
+        contributionPool(5, "贡献池"),
+        optionShare(6, "期股权");
+
+        ;
 
         private Integer type;
 
