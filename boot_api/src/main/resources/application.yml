@@ -1,0 +1,24 @@
+server:
+  # 9898
+  port: 9898
+  servlet:
+    context-path: /tg
+  tomcat:
+    threads:
+      max: 500
+      min-spare: 50
+  undertow:
+    url-charset: UTF-8
+spring:
+  profiles:
+    active: test
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 52128800
+      max-request-size: 52128800
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+logging:
+  config: classpath:logback-spring.xml
