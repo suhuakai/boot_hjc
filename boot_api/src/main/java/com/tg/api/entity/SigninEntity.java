@@ -40,7 +40,7 @@ public class SigninEntity implements Serializable {
 	/**
 	 * 签到类型   1 签到   2 关注  3 浏览
 	 */
-	private String signType;
+	private Integer signType;
 	/**
 	 * 钱包类型 id
 	 */

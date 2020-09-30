@@ -6,6 +6,7 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 import java.io.Serializable;
+import java.security.Timestamp;
 import java.time.LocalDateTime;
 
 /**
@@ -64,7 +65,7 @@ public class WithdrawEntity implements Serializable {
 	/**
 	 * 订单号
 	 */
-	private String randomCode;
+	private long randomCode;
 	/**
 	 * 图片路径
 	 */

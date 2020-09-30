@@ -38,7 +38,7 @@ public class UserController {
      */
     @RequestMapping("/safeSet")
     public R safeSet(@RequestBody Params params) {
-        LocalAssert.notNull(params.getId(), "当前用户ID不能位空");
+        LocalAssert.notNull(params.getId(), "当前用户ID不能为空");
         userService.safeSet(params);
         return R.ok();
     }

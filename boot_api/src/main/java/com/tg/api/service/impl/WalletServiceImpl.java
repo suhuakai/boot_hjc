@@ -20,7 +20,7 @@ public class WalletServiceImpl extends ServiceImpl<WalletDao, WalletEntity> impl
     public PageUtils queryPage(Map<String, Object> params) {
         IPage<WalletEntity> page = this.page(
                 new Query<WalletEntity>().getPage(params),
-                new QueryWrapper<WalletEntity>()
+                new QueryWrapper<>()
         );
 
         return new PageUtils(page);

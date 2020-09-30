@@ -16,5 +16,9 @@ import java.util.Map;
 public interface SigninService extends IService<SigninEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    void clickSign(Integer userId, Integer signType);
+
+    Map<String, Object> getByUserId(Integer userId, Integer signType);
 }
 
