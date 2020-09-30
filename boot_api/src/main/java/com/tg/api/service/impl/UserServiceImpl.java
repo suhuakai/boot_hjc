@@ -1,21 +1,25 @@
 package com.tg.api.service.impl;
 
-import ch.qos.logback.core.encoder.EchoEncoder;
-import com.tg.api.common.constant.ConstantConfig;
 import com.tg.api.common.exception.RRException;
 import com.tg.api.common.utils.LocalAssert;
 import com.tg.api.controller.UserController;
+import com.tg.api.dao.UserVipDetailDao;
+import com.tg.api.dao.VipGradeTypeDao;
+import com.tg.api.dao.WalletDao;
 import com.tg.api.entity.*;
 import com.tg.api.service.*;
 import com.tg.api.vo.UserVo;
+import com.tg.api.vo.WalletEntityVo;
 import org.apache.commons.lang3.StringUtils;
-import org.bitcoinj.core.Coin;
+import org.bitcoinj.wallet.Wallet;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +39,9 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
     WalletService walletService;
 
     @Autowired
+    WalletDao walletDao;
+
+    @Autowired
     WalletTypeService walletTypeService;
 
     @Autowired
@@ -48,12 +55,16 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
 
     @Autowired
     AddressPrestoreService addressPrestoreService;
+    @Autowired
+    UserVipDetailDao userVipDetailDao;
+    @Autowired
+    VipGradeTypeDao vipGradeTypeDao;
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
         IPage<UserEntity> page = this.page(
                 new Query<UserEntity>().getPage(params),
-                new QueryWrapper<UserEntity>()
+                new QueryWrapper<>()
         );
 
         return new PageUtils(page);
@@ -86,7 +97,7 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
         user.setUpUserId(Integer.valueOf(user.getIdentityCard()));
         user.setIdentityCard(user.getId() + "");
         user.setDate(LocalDateTime.now());
-      //  user.setUpUserId(userUp.getId());
+        //  user.setUpUserId(userUp.getId());
         user.setGrade(userUp.getGrade() + 1);
         user.setGradeUrl(userUp.getGradeUrl() + "-" + user.getId());
 
@@ -158,22 +169,6 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
             earTj.setWalletTypeId(3);
         }
         userEarningsService.save(earTj);
-//        if (userVo.getUpUserId() != null) {  //通过邀请码进来
-//            user.setUpUserId(userVo.getUpUserId());
-//            WalletEntity walletEntity = walletService.selectByUserId(userVo.getUpUserId(), ConstantConfig.WalletType.goldPool.getType());
-//            LocalAssert.notNull(walletEntity, "请确认该用户数据正确");
-//            walletEntity.setBalance(walletEntity.getBalance().add(new BigDecimal(25)));
-//            walletService.updateById(walletEntity);
-//        }
-//
-//        WalletEntity walletEntity = new WalletEntity();
-//        walletEntity.setId(ConstantConfig.getUUID());
-//        walletEntity.setWalletTypeId(ConstantConfig.WalletType.goldPool.getType());
-//        walletEntity.setUserId(userVo.getId());
-//        walletEntity.setBalance(new BigDecimal(50));
-//        walletService.save(walletEntity);
-//
-//        baseMapper.insert(user);
         return userVo;
     }
 
@@ -214,6 +209,92 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
         }
         baseMapper.updateById(userEntity);
 
+    }
+
+    /**
+     * 我的个人信息
+     *
+     * @param userId
+     * @return
+     */
+    @Override
+    public Map<String, Object> current(Integer userId) {
+
+        Map<String, Object> rtMap = new HashMap<>();
+        UserEntity userEntity = baseMapper.selectById(userId);
+        UserVo user = new UserVo();
+        BeanUtils.copyProperties(userEntity, user);
+
+        List<WalletEntityVo> walletEntityVoList = walletDao.getByUserId(userId);
+        rtMap.put("walletList", walletEntityVoList);  //资产明细
+
+        WalletEntity walletEntity = walletService.getOne(new QueryWrapper<WalletEntity>()
+                .eq("user_id", userId).eq("wallet_type_id", 2));
+        user.setAddress(walletEntity == null ? "" : walletEntity.getAddress());  //地址
+
+        UserVipDetailEntity userVipDetailEntity = userVipDetailDao.selectOne(new QueryWrapper<UserVipDetailEntity>().eq("user_id", userId));
+
+        if (userVipDetailEntity == null) {
+            user.setVipLevel("一星矿工");
+        } else {
+            VipGradeTypeEntity vipGradeTypeEntity = vipGradeTypeDao.selectById(userVipDetailEntity.getOriginalVpiId());
+            user.setVipLevel(vipGradeTypeEntity.getName());
+        }
+
+        List<UserEntity> userEntityList = baseMapper.selectList(new QueryWrapper<UserEntity>().eq("up_user_id", userId));  //一代直推
+        Integer recomment = 0;
+        for (UserEntity ue : userEntityList) {
+            recomment += ue.getRecommendCount();
+        }
+        user.setRecommendCount(userEntity.getRecommendCount() + recomment);  //推荐人数
+        user.setEarnings(new BigDecimal(userEntity.getRecommendCount() + recomment).multiply(new BigDecimal(25)));  //收益
+        walletEntity = walletService.getOne(new QueryWrapper<WalletEntity>()
+                .eq("user_id", userId).eq("wallet_type_id", 1));
+        user.setEarnMoney(walletEntity == null ? new BigDecimal(0) : walletEntity.getBalance());    //余额
+        rtMap.put("userVo", user);  //用户信息
+
+        return rtMap;
+    }
+
+    /**
+     * 我的团队
+     *
+     * @param map
+     * @return
+     */
+    @Override
+    public PageUtils myTeam(Map<String, Object> map) {
+        List<UserEntity> userEntityList = baseMapper.selectList(new QueryWrapper<UserEntity>().eq("up_user_id", map.get("userId")));  //一代直推
+        List<Integer> upUserIds = new ArrayList<>();
+        for (UserEntity ue : userEntityList) {
+            upUserIds.add(ue.getId());
+        }
+        map.put("id", upUserIds);
+        IPage<UserEntity> page;
+        if ("1".equals(map.get("grade").toString())) {
+            page = this.page(
+                    new Query<UserEntity>().getPage(map),
+                    new QueryWrapper<>()
+            );
+            for (UserEntity userEntity : page.getRecords()) {
+                userEntity.setEarningsOne(new BigDecimal(25));
+            }
+        } else {
+            List<UserEntity> userEntityList2 = baseMapper.selectList(new QueryWrapper<UserEntity>().in("up_user_id", upUserIds));  //二代推荐
+            upUserIds = new ArrayList<>();
+            for (UserEntity ue : userEntityList2) {
+                upUserIds.add(ue.getId());
+            }
+            map.put("id", upUserIds);
+            page = this.page(
+                    new Query<UserEntity>().getPage(map),
+                    new QueryWrapper<>()
+            );
+            for (UserEntity userEntity : page.getRecords()) {
+                userEntity.setEarningsTwo(new BigDecimal(25));
+            }
+        }
+        return new PageUtils(page);
     }
 
 

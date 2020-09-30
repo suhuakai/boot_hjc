@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
  * @author SH
  * @version 1.0
  */
-public final class LocalAssert extends Assert {
+public final class LocalAssert extends  Assert{
 
     /**
      * 断言两个字符串相等
@@ -501,7 +501,7 @@ public final class LocalAssert extends Assert {
      *
      */
     public static void isIncludeIgnoreCase(String value, String[] array, String message, Object... args) throws RRException {
-        LocalAssert.notEmpty(array, "array，不能为空");
+       LocalAssert.notEmpty(array, "array，不能为空");
         boolean findFarget = false;
         for (String s : array) {
             if (value == s || (value != null && value.equalsIgnoreCase(s))) {

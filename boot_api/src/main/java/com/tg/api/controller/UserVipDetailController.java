@@ -1,5 +1,6 @@
 package com.tg.api.controller;
 
+import com.tg.api.common.utils.LocalAssert;
 import com.tg.api.common.utils.PageUtils;
 import com.tg.api.common.utils.R;
 import com.tg.api.service.UserVipDetailService;
@@ -32,6 +33,20 @@ public class UserVipDetailController {
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = userVipDetailService.queryPage(params);
         return R.ok(page);
+    }
+
+    /**
+     *购买升级
+     * @param userId
+     * @param vipId
+     * @return
+     */
+    @RequestMapping("/buyVip")
+    public R buyVip(Integer userId,Integer vipId){
+        LocalAssert.notNull(userId,"用户ID不能为空");
+        LocalAssert.notNull(vipId,"等级ID不能为空");
+        userVipDetailService.buyVip(userId,vipId);
+        return  R.ok();
     }
 
 

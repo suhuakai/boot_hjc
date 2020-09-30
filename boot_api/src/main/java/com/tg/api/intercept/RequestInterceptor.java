@@ -34,7 +34,8 @@ public class RequestInterceptor implements HandlerInterceptor {
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
-        String ip =   IPUtils.getIpAddr(request);
+
+         String ip =   IPUtils.getIpAddr(request);
         String token = request.getHeader(ConstantCache.TOKEN);
         String servletPath = request.getServletPath();
         System.out.println(ip+"=================" +servletPath +"=================");

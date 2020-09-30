@@ -5,6 +5,7 @@ import com.tg.api.common.utils.PageUtils;
 import com.tg.api.controller.UserController;
 import com.tg.api.entity.UserEntity;
 import com.tg.api.vo.UserVo;
+import org.springframework.data.domain.Page;
 
 import java.util.Map;
 
@@ -26,5 +27,9 @@ public interface UserService extends IService<UserEntity> {
     UserVo rememberMe(UserVo userVo);
 
     void safeSet(UserController.Params params);
+
+    Map<String, Object> current(Integer userId);
+
+    PageUtils myTeam(Map<String, Object> map);
 }
 

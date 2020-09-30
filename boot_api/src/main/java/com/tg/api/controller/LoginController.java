@@ -93,7 +93,6 @@ public class LoginController extends BaseController {
      */
     @RequestMapping("/getWallet")
     public R getWallet() {
-
         UserEntity userEntity = new UserEntity();
         userEntity.setId(sequenceService.nextval("user_id"));
         BitWallet bitWallet = BitcoinWalletUtils.createWallet();
@@ -113,6 +112,7 @@ public class LoginController extends BaseController {
     @RequestMapping("/register")
     public synchronized R register(@RequestBody  UserVo userVo) {
         valiData(userVo);
+        LocalAssert.notNull(userVo.getId(), "矿工ID不能为空");
         LocalAssert.notNull(userVo.getIdentityCard(), "请输入邀请码");
         //邀请码  用户id
          userService.Register(userVo);
@@ -137,7 +137,7 @@ public class LoginController extends BaseController {
      * @param userVo
      */
     public  void valiData(UserVo userVo){
-        LocalAssert.notNull(userVo.getId(), "矿工ID不能为空");
+
         LocalAssert.notNull(userVo.getName(), "请输入昵称");
         LocalAssert.notNull(userVo.getMnemonic(), "助记词不能为空");
         LocalAssert.notNull(userVo.getPassword(), "设置登录密码不能为空");

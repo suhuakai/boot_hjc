@@ -39,6 +39,15 @@ public class SigninServiceImpl extends ServiceImpl<SigninDao, SigninEntity> impl
                 new Query<SigninEntity>().getPage(params),
                 new QueryWrapper<>()
         );
+        for (SigninEntity pager:page.getRecords()) {
+            if (1 == pager.getSignType()) {
+                pager.setSignTypeName("签到奖励");
+            } else if (2 == pager.getSignType()) {
+                pager.setSignTypeName("关注奖励");
+            } else {
+                pager.setSignTypeName("浏览奖励");
+            }
+        }
 
         return new PageUtils(page);
     }
@@ -57,14 +66,6 @@ public class SigninServiceImpl extends ServiceImpl<SigninDao, SigninEntity> impl
         earTj.setUserId(userId);
         earTj.setNumber(new BigDecimal(1));
         earTj.setSettleStatus("no");
-        if (signType == 1) {
-            earTj.setType("sign");
-        } else if (signType == 2) {
-            earTj.setType("attention");
-        } else {
-            earTj.setType("browse");
-        }
-
         BalanceEntity balanceEntity = balanceService.getById(1);
 
         if (balanceEntity.getBalanceMoney().compareTo(new BigDecimal(1)) < 0) {
@@ -74,6 +75,14 @@ public class SigninServiceImpl extends ServiceImpl<SigninDao, SigninEntity> impl
         } else {
             earTj.setWalletTypeId(3);
         }
+        if (signType == 1) {  //签到一次被置灰
+            earTj.setType("sign");
+        } else if (signType == 2) {   //关注
+            earTj.setType("attention");
+        } else {
+            earTj.setType("browse");
+        }
+
         userEarningsService.save(earTj);
 
         //签到记录

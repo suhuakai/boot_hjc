@@ -1,11 +1,13 @@
 package com.tg.api.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
@@ -77,5 +79,12 @@ public class UserEntity implements Serializable {
 	 * 激活码
 	 */
 	private String identityCard;
+
+	@TableField(exist = false)
+	private BigDecimal earningsOne;
+
+	@TableField(exist = false)
+	private BigDecimal earningsTwo;
+
 
 }

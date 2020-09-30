@@ -2,12 +2,14 @@ package com.tg.api.controller;
 
 import com.tg.api.common.utils.PageUtils;
 import com.tg.api.common.utils.R;
+import com.tg.api.entity.VipGradeTypeEntity;
 import com.tg.api.service.VipGradeTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Map;
 
 
@@ -33,5 +35,16 @@ public class VipGradeTypeController {
         PageUtils page = vipGradeTypeService.queryPage(params);
         return R.ok(page);
     }
+
+    /**
+     * 列表不分页
+     */
+    @RequestMapping("/getList")
+    public R getList(){
+        List<VipGradeTypeEntity> list= vipGradeTypeService.list();
+        return R.ok(list);
+    }
+
+
 
 }
