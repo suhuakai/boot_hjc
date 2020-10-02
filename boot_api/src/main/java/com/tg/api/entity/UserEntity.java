@@ -86,5 +86,15 @@ public class UserEntity implements Serializable {
 	@TableField(exist = false)
 	private BigDecimal earningsTwo;
 
+	/**
+	 * 头像
+	 */
+	private String headUrl;
+
+	/**
+	 * 用户等级明细id
+	 */
+	private Integer userVipId;
+
 
 }

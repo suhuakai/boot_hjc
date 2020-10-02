@@ -32,6 +32,7 @@ public class SigninController {
      */
     @RequestMapping("/list")
     public R list(@RequestParam Map<String, Object> params){
+        params.put("signType",params.get("signType"));
         PageUtils page = signinService.queryPage(params);
         return R.ok(page);
     }
@@ -41,7 +42,7 @@ public class SigninController {
      * @return
      */
     @RequestMapping("/clickSign")
-    public R clickSign(Integer userId,Integer signType){
+    public synchronized R clickSign(Integer userId,Integer signType){
         LocalAssert.notNull(userId,"用户ID不能为空");
         signinService.clickSign(userId,signType);
         return  R.ok();

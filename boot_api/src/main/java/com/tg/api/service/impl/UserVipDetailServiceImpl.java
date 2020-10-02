@@ -1,16 +1,16 @@
 package com.tg.api.service.impl;
 
-import com.tg.api.entity.UserEntity;
-import com.tg.api.entity.VipGradeTypeEntity;
-import com.tg.api.entity.WalletEntity;
-import com.tg.api.service.UserService;
-import com.tg.api.service.VipGradeTypeService;
-import com.tg.api.service.WalletService;
+import com.tg.api.entity.*;
+import com.tg.api.service.*;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -20,8 +20,6 @@ import com.tg.api.common.utils.PageUtils;
 import com.tg.api.common.utils.Query;
 
 import com.tg.api.dao.UserVipDetailDao;
-import com.tg.api.entity.UserVipDetailEntity;
-import com.tg.api.service.UserVipDetailService;
 
 
 @Service("userVipDetailService")
@@ -33,13 +31,23 @@ public class UserVipDetailServiceImpl extends ServiceImpl<UserVipDetailDao, User
     WalletService walletService;
     @Autowired
     UserService userService;
+    @Autowired
+    BalanceService balanceService;
+    @Autowired
+    UserEarningsService userEarningsService;
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
         IPage<UserVipDetailEntity> page = this.page(
                 new Query<UserVipDetailEntity>().getPage(params),
-                new QueryWrapper<>()
+                new QueryWrapper<UserVipDetailEntity>().eq("user_id", params.get("userId")).orderByDesc("date")
         );
+        for (UserVipDetailEntity userVipDetailEntity : page.getRecords()) {
+            VipGradeTypeEntity vipGradeTypeEntity = vipGradeTypeService.getById(userVipDetailEntity.getVipId());
+            userVipDetailEntity.setStatusName((StringUtils.isNotBlank(userVipDetailEntity.getSettleStatus()) && "no".equals(userVipDetailEntity.getSettleStatus())) ? "已结算" : "未结算");
+            userVipDetailEntity.setVipGradeName(vipGradeTypeEntity.getName());
+            userVipDetailEntity.setBalance(vipGradeTypeEntity.getWorth());
+        }
 
         return new PageUtils(page);
     }
@@ -52,6 +60,16 @@ public class UserVipDetailServiceImpl extends ServiceImpl<UserVipDetailDao, User
      */
     @Override
     public void buyVip(Integer userId, Integer vipId) {
+        Integer originVipId;
+        List<UserVipDetailEntity> userVipDetailEntityList = baseMapper.selectList(new QueryWrapper<UserVipDetailEntity>()
+                .eq("user_id", userId).orderByDesc("date"));
+        if (CollectionUtils.isNotEmpty(userVipDetailEntityList) && userVipDetailEntityList.size() > 0) {
+            UserVipDetailEntity userVipDetailEntity = userVipDetailEntityList.get(0);
+            originVipId = userVipDetailEntity.getVipId();
+        } else {
+            originVipId = vipId;
+        }
+
         VipGradeTypeEntity vipGradeTypeEntity = vipGradeTypeService.getById(vipId);
         UserEntity user = userService.getById(userId);
 
@@ -63,7 +81,7 @@ public class UserVipDetailServiceImpl extends ServiceImpl<UserVipDetailDao, User
         userVipDetailEntity.setVipId(vipId);
         userVipDetailEntity.setType("buy");
         userVipDetailEntity.setSettleStatus("no");
-
+        userVipDetailEntity.setOriginalVpiId(originVipId);
         baseMapper.insert(userVipDetailEntity);
 
         //余额减少
@@ -71,12 +89,24 @@ public class UserVipDetailServiceImpl extends ServiceImpl<UserVipDetailDao, User
         walletEntity.setBalance(walletEntity.getBalance().subtract(vipGradeTypeEntity.getWorth()));
         walletService.updateById(walletEntity);
 
-        //上级用户+15%
+        //上级用户+15% 定时任务做
         UserEntity userEntity = userService.getById(user.getUpUserId());
-        walletEntity = walletService.getOne(new QueryWrapper<WalletEntity>().eq("user_id", userEntity.getId()).eq("wallet_type_id", 1));
+       /*  walletEntity = walletService.getOne(new QueryWrapper<WalletEntity>().eq("user_id", userEntity.getId()).eq("wallet_type_id", 1));
         walletEntity.setBalance(walletEntity.getBalance().add(vipGradeTypeEntity.getWorth().multiply(new BigDecimal("0.15"))));
-        walletService.updateById(walletEntity);
+        walletService.updateById(walletEntity);*/
 
+        // 推荐奖励
+        UserEarningsEntity earTj = new UserEarningsEntity();
+        earTj.setDate(LocalDateTime.now());
+        earTj.setUserId(userEntity.getId());
+        earTj.setNumber(walletEntity.getBalance().add(vipGradeTypeEntity.getWorth().multiply(new BigDecimal("0.15"))));
+        earTj.setSettleStatus("no");
+        earTj.setType("upRecommend");
+        earTj.setUpUserId(userId);  //下级
+        earTj.setWalletTypeId(1);  //余额
+        userEarningsService.save(earTj);
+
+        //
     }
 
 }

@@ -1,7 +1,9 @@
 package com.tg.api.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.tg.api.common.utils.PageUtils;
 import com.tg.api.common.utils.R;
+import com.tg.api.entity.BanksEntity;
 import com.tg.api.service.BanksService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,6 +35,14 @@ public class BanksController {
         PageUtils page = banksService.queryPage(params);
         return R.ok(page);
     }
+
+    @RequestMapping("/info")
+    public R info(){
+        BanksEntity banksEntity = banksService.getOne(new QueryWrapper<BanksEntity>().eq("status","yes"));
+        return R.ok(banksEntity);
+    }
+
+
 
 
 }

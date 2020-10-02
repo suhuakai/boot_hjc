@@ -73,7 +73,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 	 * 得到日期时间字符串，转换格式（yyyy-MM-dd HH:mm:ss）
 	 */
 	public static String formatDateTime(Date date) {
-		return formatDate(date, "yyyy-MM-dd HH:mm:ss");
+		return formatDate(date, "yyyy-MM-dd");
 	}
 
 	/**

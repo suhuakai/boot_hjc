@@ -232,12 +232,12 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
                 .eq("user_id", userId).eq("wallet_type_id", 2));
         user.setAddress(walletEntity == null ? "" : walletEntity.getAddress());  //地址
 
-        UserVipDetailEntity userVipDetailEntity = userVipDetailDao.selectOne(new QueryWrapper<UserVipDetailEntity>().eq("user_id", userId));
+        UserVipDetailEntity userVipDetailEntity = userVipDetailDao.selectById(userEntity.getUserVipId());
 
         if (userVipDetailEntity == null) {
             user.setVipLevel("一星矿工");
         } else {
-            VipGradeTypeEntity vipGradeTypeEntity = vipGradeTypeDao.selectById(userVipDetailEntity.getOriginalVpiId());
+            VipGradeTypeEntity vipGradeTypeEntity = vipGradeTypeDao.selectById(userVipDetailEntity.getVipId());
             user.setVipLevel(vipGradeTypeEntity.getName());
         }
 

@@ -1,8 +1,10 @@
 package com.tg.api.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.math.BigDecimal;
 import java.io.Serializable;
@@ -61,5 +63,14 @@ public class UserVipDetailEntity implements Serializable {
 	 * 初始等级
 	 */
 	private Integer originalVpiId;
+
+	@TableField(exist = false)
+	private String statusName;
+
+	@TableField(exist = false)
+	private String vipGradeName;
+
+	@TableField(exist = false)
+	private BigDecimal balance;
 
 }

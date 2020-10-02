@@ -1,5 +1,6 @@
 package com.tg.api.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
@@ -73,7 +74,7 @@ public class WithdrawEntity implements Serializable {
 	/**
 	 * 实际充值金额
 	 */
-	private Integer realityNumber;
+	private BigDecimal realityNumber;
 	/**
 	 * 银行卡 支付宝
 	 */
@@ -94,5 +95,17 @@ public class WithdrawEntity implements Serializable {
 	 * 子行
 	 */
 	private String banksSonType;
+
+	@TableField(exist = false)
+	private String statusName;
+
+	@TableField(exist = false)
+	private String typeName;
+
+	@TableField(exist = false)
+	private BigDecimal balance;
+
+	@TableField(exist = false)
+	private String userTypeName;
 
 }

@@ -1,5 +1,6 @@
 package com.tg.api.service.impl;
 
+import com.tg.api.common.exception.RRException;
 import com.tg.api.common.utils.DateUtils;
 import com.tg.api.entity.BalanceEntity;
 import com.tg.api.entity.UserEarningsEntity;
@@ -10,10 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -24,6 +22,7 @@ import com.tg.api.common.utils.Query;
 import com.tg.api.dao.SigninDao;
 import com.tg.api.entity.SigninEntity;
 import com.tg.api.service.SigninService;
+import org.springframework.transaction.annotation.Transactional;
 
 
 @Service("signinService")
@@ -37,9 +36,9 @@ public class SigninServiceImpl extends ServiceImpl<SigninDao, SigninEntity> impl
     public PageUtils queryPage(Map<String, Object> params) {
         IPage<SigninEntity> page = this.page(
                 new Query<SigninEntity>().getPage(params),
-                new QueryWrapper<>()
+                new QueryWrapper<SigninEntity>().eq("sign_type", params.get("signType")).eq("user_id", params.get("userId"))
         );
-        for (SigninEntity pager:page.getRecords()) {
+        for (SigninEntity pager : page.getRecords()) {
             if (1 == pager.getSignType()) {
                 pager.setSignTypeName("签到奖励");
             } else if (2 == pager.getSignType()) {
@@ -59,6 +58,7 @@ public class SigninServiceImpl extends ServiceImpl<SigninDao, SigninEntity> impl
      * @param signType
      */
     @Override
+    @Transactional
     public void clickSign(Integer userId, Integer signType) {
         //明细收益
         UserEarningsEntity earTj = new UserEarningsEntity();
@@ -85,8 +85,14 @@ public class SigninServiceImpl extends ServiceImpl<SigninDao, SigninEntity> impl
 
         userEarningsService.save(earTj);
 
+        SigninEntity signinEntity = baseMapper.selectOne(new QueryWrapper<SigninEntity>().eq("user_id", userId)
+                .like("sign_date", DateUtils.formatDateTime(new Date())).eq("sign_type", signType));
+        if (signinEntity != null) {
+            throw new RRException("今天已签到或已关注或已浏览");
+        }
+
         //签到记录
-        SigninEntity signinEntity = new SigninEntity();
+        signinEntity = new SigninEntity();
         signinEntity.setSignBalance(new BigDecimal(1));
         signinEntity.setSignDate(LocalDateTime.now());
         signinEntity.setSignType(signType);

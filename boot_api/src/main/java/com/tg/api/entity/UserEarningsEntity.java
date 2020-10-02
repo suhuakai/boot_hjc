@@ -1,5 +1,6 @@
 package com.tg.api.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
@@ -51,5 +52,14 @@ public class UserEarningsEntity implements Serializable {
 	private String settleStatus;
 
 	private Integer upUserId;
+
+	@TableField(exist = false)
+	private String statusName;
+
+	@TableField(exist = false)
+	private String typeName;
+
+	@TableField(exist = false)
+	private BigDecimal balance;
 
 }
