@@ -7,6 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.beans.Transient;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Collections;
@@ -20,6 +21,7 @@ import com.tg.api.common.utils.PageUtils;
 import com.tg.api.common.utils.Query;
 
 import com.tg.api.dao.UserVipDetailDao;
+import org.springframework.transaction.annotation.Transactional;
 
 
 @Service("userVipDetailService")
@@ -59,6 +61,7 @@ public class UserVipDetailServiceImpl extends ServiceImpl<UserVipDetailDao, User
      * @param vipId
      */
     @Override
+    @Transactional
     public void buyVip(Integer userId, Integer vipId) {
         Integer originVipId;
         List<UserVipDetailEntity> userVipDetailEntityList = baseMapper.selectList(new QueryWrapper<UserVipDetailEntity>()
@@ -86,8 +89,10 @@ public class UserVipDetailServiceImpl extends ServiceImpl<UserVipDetailDao, User
 
         //余额减少
         WalletEntity walletEntity = walletService.getOne(new QueryWrapper<WalletEntity>().eq("user_id", userId).eq("wallet_type_id", 1));
-        walletEntity.setBalance(walletEntity.getBalance().subtract(vipGradeTypeEntity.getWorth()));
-        walletService.updateById(walletEntity);
+        if (walletEntity != null) {
+            walletEntity.setBalance(walletEntity.getBalance().subtract(vipGradeTypeEntity.getWorth()));
+            walletService.updateById(walletEntity);
+        }
 
         //上级用户+15% 定时任务做
         UserEntity userEntity = userService.getById(user.getUpUserId());
@@ -99,7 +104,7 @@ public class UserVipDetailServiceImpl extends ServiceImpl<UserVipDetailDao, User
         UserEarningsEntity earTj = new UserEarningsEntity();
         earTj.setDate(LocalDateTime.now());
         earTj.setUserId(userEntity.getId());
-        earTj.setNumber(walletEntity.getBalance().add(vipGradeTypeEntity.getWorth().multiply(new BigDecimal("0.15"))));
+        earTj.setNumber(vipGradeTypeEntity.getWorth(). multiply(new BigDecimal("0.15")));
         earTj.setSettleStatus("no");
         earTj.setType("upRecommend");
         earTj.setUpUserId(userId);  //下级
