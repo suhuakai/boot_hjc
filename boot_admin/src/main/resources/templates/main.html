@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>欢迎页</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="${request.contextPath}/statics/css/bootstrap.min.css">
+
+</head>
+<body>
+<div class="content" id="rrapp">
+    <div class="content_top">
+        <!--        <button v-on:click="refresh" id="refresh">刷新</button>-->
+        <b>当前系统时间：</b><b id="time"></b></div>
+    <div class="content_list">
+        <ul class="listone" >
+            <div class="row" >
+                <div class="col-sm-3" style="background-color: #f0f0f0">
+                    <img src="statics/images/ziyuan.png" width="25%" style="margin-top: 10px;margin-bottom: 10px"/>
+                    <a href="javaScript:void (0)" style="font-size: 20px;margin-left: 10px;"><b id="userCountAll">0</b>:平台总人数</a>
+                </div>
+                <div class="col-sm-3" style="background-color: #f0f0f0">
+                    <img src="statics/images/a.png" width="25%" style="margin-top: 10px;margin-bottom: 10px"/>
+                    <a href="javaScript:void (0)" style="font-size: 20px;margin-left: 10px;"><b id="userCount">0</b>:今日新增人数</a>
+                </div>
+                <div class="col-sm-3" style="background-color: #f0f0f0">
+                    <img src="statics/images/maichu.png" width="25%" style="margin-top: 10px;margin-bottom: 10px"/>
+                    <a href="javaScript:void (0)" style="font-size: 20px;margin-left: 10px;"><b id="rechargeAll">0</b>:总充值</a>
+                </div>
+                <div class="col-sm-3" style="background-color: #f0f0f0">
+                    <img src="statics/images/d.png" width="25%" style="margin-top: 10px;margin-bottom: 10px"/>
+                    <a href="javaScript:void (0)" style="font-size: 20px;margin-left: 10px;"><b id="recharge">0</b>:当前总充值</a>
+                </div>
+            </div>
+        </ul>
+
+        <ul class="listone" >
+            <div class="row">
+                <div class="col-sm-3" style="background-color: #f0f0f0">
+                    <img src="statics/images/maichu.png" width="25%" style="margin-top: 10px;margin-bottom: 10px"/>
+                    <a href="javaScript:void (0)" style="font-size: 20px;margin-left: 10px;"><b id="tixianAll">0</b>:总提现</a>
+                </div>
+                <div class="col-sm-3" style="background-color: #f0f0f0">
+                    <img src="statics/images/d.png" width="25%" style="margin-top: 10px;margin-bottom: 10px"/>
+                    <a href="javaScript:void (0)" style="font-size: 20px;margin-left: 10px;"><b
+                            id="tixian">0</b>:今日提现</a>
+                </div>
+                <div class="col-sm-3" style="background-color: #f0f0f0">
+                    <img onclick="f(this)" src="statics/images/j.png" width="25%"
+                         title="0xdff8a94c1c61ed1f66be27ff81bf6143afc54771"
+                         style="margin-top: 10px;margin-bottom: 10px"/>
+                    <a href="javaScript:void (0)" style="font-size: 20px;margin-left: 10px;"><b
+                            id="balance">0</b>:余额池</a>
+                </div>
+                <div class="col-sm-3" style="background-color: #f0f0f0" par>
+                    <img onclick="f(this)" src="statics/images/s.png" width="25%"
+                         title="0xdff8a94c1c61ed1f66be27ff81bf6143afc54771"
+                         style="margin-top: 10px;margin-bottom: 10px"/>
+                    <a href="javaScript:void (0)" style="font-size: 20px;margin-left: 10px;"><b id="integral">0</b>:福豆池</a>
+                </div>
+            </div>
+        </ul>
+
+        <!--        <ul class="listone">-->
+        <!--            <div class="row" >-->
+        <!--                <div class="col-sm-3" style="background-color: #f0f0f0">-->
+        <!--                    <img src="statics/images/maichu.png" width="25%" style="margin-top: 10px;margin-bottom: 10px"/>-->
+        <!--                    <a href="javaScript:void (0)" style="font-size: 20px;margin-left: 10px;"><b id="balance">0</b>:平台沉淀资金</a></div>-->
+        <!--                <div class="col-sm-3" style="background-color: #f0f0f0">-->
+        <!--                    <img src="statics/images/d.png" width="25%" style="margin-top: 10px;margin-bottom: 10px"/>-->
+        <!--                    <a href="javaScript:void (0)" style="font-size: 20px;margin-left: 10px;"><b id="tuijianpaomo">0</b>:推荐泡沫</a>-->
+        <!--                </div>-->
+        <!--                <div class="col-sm-3" style="background-color: #f0f0f0">-->
+        <!--                    <img onclick="f(this)"  src="statics/images/j.png" width="25%" title="0xdff8a94c1c61ed1f66be27ff81bf6143afc54771"-->
+        <!--                         style="margin-top: 10px;margin-bottom: 10px"/>-->
+        <!--                    <a href="javaScript:void (0)" style="font-size: 20px;margin-left: 10px;"><b id="tuijiantaskpaomo">0</b>:推荐任务泡沫</a>-->
+        <!--                </div>-->
+        <!--                <div class="col-sm-3" style="background-color: #f0f0f0" par>-->
+        <!--                    <img onclick="f(this)" src="statics/images/s.png" width="25%" title="0xdff8a94c1c61ed1f66be27ff81bf6143afc54771"-->
+        <!--                         style="margin-top: 10px;margin-bottom: 10px"/>-->
+        <!--                    <a href="javaScript:void (0)" style="font-size: 20px;margin-left: 10px;"><b id="taskpaomo">0</b>:任务泡沫</a>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </ul>-->
+
+
+    </div>
+    <!--<div id="rrapp" v-cloak>-->
+    <!--<div v-show="showList">-->
+
+    <!--<table id="jqGrid"></table>-->
+    <!--<div id="jqGridPager"></div>-->
+    <!--</div>-->
+    <!--</div>-->
+</div>
+</div>
+<script src="${request.contextPath}/statics/libs/jquery.min.js"></script>
+<script src="${request.contextPath}/statics/libs/vue.min.js"></script>
+<script src="${request.contextPath}/statics/js/index.js"></script>
+<script>
+    function f(ele) {
+
+        var copyDOM = ele;  //要复制文字的节点  
+        var range = document.createRange(); //创建一个range
+        window.getSelection().removeAllRanges();   //清楚页面中已有的selection
+        range.selectNode(copyDOM);    // 选中需要复制的节点    
+        window.getSelection().addRange(range);   // 执行选中元素
+        var successful = document.execCommand('copy');    // 执行 copy 操作  
+
+        // 移除选中的元素  
+        window.getSelection().removeAllRanges();
+    }
+
+    var timehtml = document.getElementById("time");
+    setInterval(function () {
+        var time = new Date();   // 程序计时的月从0开始取值后+1
+        var m = time.getMonth() + 1;
+        var t = time.getFullYear() + "-" + m + "-"
+            + time.getDate() + " " + time.getHours() + ":"
+            + time.getMinutes() + ":" + time.getSeconds();
+        timehtml.innerHTML = t;
+    }, 1000);
+        $.ajax({
+            type: "POST",
+            url: "../../business/user/statistics",
+            contentType: "application/json",
+            success: function (r) {
+                $("#userCountAll").html(r.data.userCountAll);
+                $("#userCount").html(r.data.userCount);
+
+                $("#rechargeAll").html(r.data.rechargeAll);
+                $("#recharge").html(r.data.recharge);
+
+                $("#tixianAll").html(r.data.tixianAll);
+                $("#tixian").html(r.data.tixian);
+
+                $("#balance").html(r.data.balance);
+                $("#integral").html(r.data.integral);
+
+            }
+    })
+
+</script>
+</body>
+</html>

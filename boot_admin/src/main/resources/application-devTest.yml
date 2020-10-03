@@ -1,0 +1,41 @@
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://121.36.1.36:3306/tg_test?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+      username: root
+      password: Wu123456789
+      driver-class-name: com.mysql.jdbc.Driver
+      initial-size: 10
+      max-active: 50
+      min-idle: 10
+      max-wait: 600000
+      remove-abandoned: true
+      remove-abandoned-timeout: 180
+      remove-abandoned-timeout-millis: 600000
+      min-evictable-idle-time-millis: 300000
+      validation-query: select 1
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 50
+      filters: stat,wall
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      stat-view-servlet:
+        login-username: root
+        login-password: yunaibo520
+      query-timeout: 1000
+      validation-query-timeout: 1
+    type: com.alibaba.druid.pool.DruidDataSource
+  redis:
+    database: 1
+    host: 192.168.0.139
+    port: 6379
+    password: Wu123456789
+    timeout: 6000ms
+    jedis:
+      pool:
+        max-active: 500
+        max-wait: -1ms
+        max-idle: 200
+        min-idle: 20

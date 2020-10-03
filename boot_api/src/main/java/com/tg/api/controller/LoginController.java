@@ -14,6 +14,7 @@ import com.tg.api.service.SequenceService;
 import com.tg.api.service.UserService;
 import com.tg.api.vo.UserVo;
 import lombok.extern.log4j.Log4j2;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,7 +25,6 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
 @RestController
@@ -47,8 +47,14 @@ public class LoginController extends BaseController {
      * @return UserInfoVo
      */
     @RequestMapping(path = "ajaxLogin", produces = "application/json;charset=utf-8")
-    public R ajaxLogin(@NotBlank(message = "矿工助记词不能为空") String id, @NotBlank(message = "密码不能为空") String password, HttpServletRequest request, HttpServletResponse response) {
+    public R ajaxLogin(String id, String password, HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
+        if (StringUtils.isBlank(id)) {
+            throw new RRException("矿工助记词不能为空");
+        }
+        if (StringUtils.isBlank(password)) {
+            throw new RRException("密码不能为空");
+        }
         if (!session.isNew()) {
             response.setHeader(ConstantConfig.HTTP_SESSION_ID, session.getId());
             log.debug("➧➧➧ 重复：JSESSIONID={}", session.getId());
@@ -110,23 +116,24 @@ public class LoginController extends BaseController {
      * @return
      */
     @RequestMapping("/register")
-    public synchronized R register(@RequestBody  UserVo userVo) {
+    public synchronized R register(@RequestBody UserVo userVo) {
         valiData(userVo);
         LocalAssert.notNull(userVo.getId(), "矿工ID不能为空");
         LocalAssert.notNull(userVo.getIdentityCard(), "请输入邀请码");
         //邀请码  用户id
-         userService.Register(userVo);
+        userService.Register(userVo);
         return R.ok();
     }
 
     /**
      * 忘记密码
+     *
      * @param userVo
      * @return
      */
     @RequestMapping("/rememberMe")
-    public R rememberMe(@RequestBody  UserVo userVo) {
-       valiData(userVo);
+    public R rememberMe(@RequestBody UserVo userVo) {
+        valiData(userVo);
         //邀请码  用户id
         UserVo vo = userService.rememberMe(userVo);
         return R.ok();
@@ -134,9 +141,10 @@ public class LoginController extends BaseController {
 
     /**
      * 校验
+     *
      * @param userVo
      */
-    public  void valiData(UserVo userVo){
+    public void valiData(UserVo userVo) {
 
         LocalAssert.notNull(userVo.getName(), "请输入昵称");
         LocalAssert.notNull(userVo.getMnemonic(), "助记词不能为空");
@@ -146,7 +154,7 @@ public class LoginController extends BaseController {
         LocalAssert.notNull(userVo.getDealPassword(), "设置支付密码不能为空");
         LocalAssert.notNull(userVo.getConfirmDealPwd(), "确认支付密码不能为空");
         LocalAssert.notEqualsValue(userVo.getDealPassword(), userVo.getConfirmDealPwd(), "支付密码与确认支付密码必须一致");
-       // LocalAssert.notNull(userVo.getIdentityCard(), "邀请码不能为空");
+        // LocalAssert.notNull(userVo.getIdentityCard(), "邀请码不能为空");
     }
 
 }
