@@ -5,6 +5,7 @@ import com.tg.api.common.constant.ConstantCache;
 import com.tg.api.common.exception.RRException;
 import com.tg.api.common.qiniuyun.Qiniuyun;
 import com.tg.api.common.redis.RedisConfigService;
+import com.tg.api.common.utils.BASE64DecodedMultipartFile;
 import com.tg.api.common.utils.Base64Util;
 import com.tg.api.common.utils.R;
 import com.tg.api.common.validator.Assert;
@@ -14,15 +15,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import sun.misc.BASE64Decoder;
 
 import javax.annotation.Resource;
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
@@ -81,6 +80,40 @@ public class BaseController {
         String fileType = filepath.substring(filepath.lastIndexOf(".")+1, filepath.length());
 
         FileInputStream inputStream = (FileInputStream) file.getInputStream();
+
+        //获取当前时间
+        String now = new SimpleDateFormat("yy-MM-dd HH:mm:ss").format(new Date());
+        fileName = fileName+"("+now+")"+"."+fileType;
+        //文件位置
+        String fileId = Qiniuyun.upload(inputStream, fileName);
+        return R.ok(fileId);
+    }
+
+    /**
+     * base64
+     * @param file
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/upload", method = RequestMethod.POST)
+    public R upload(String file) throws Exception {
+        String[] baseStrs = file.split(",");
+        BASE64Decoder decoder = new BASE64Decoder();
+        byte[] b ;
+        b = decoder.decodeBuffer(baseStrs[1]);
+
+        for (int i = 0; i < b.length; ++i) {
+            if (b[i] < 0) {
+                b[i] += 256;
+            }
+        }
+        MultipartFile multipartFile = new BASE64DecodedMultipartFile(b, baseStrs[0]);
+
+        String filepath = multipartFile.getOriginalFilename();
+        String fileName = filepath.substring(filepath.lastIndexOf("/") + 1, filepath.lastIndexOf("."));
+        String fileType = filepath.substring(filepath.lastIndexOf(".")+1, filepath.length());
+
+        FileInputStream inputStream = (FileInputStream) multipartFile.getInputStream();
 
         //获取当前时间
         String now = new SimpleDateFormat("yy-MM-dd HH:mm:ss").format(new Date());
