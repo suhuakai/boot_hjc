@@ -46,7 +46,7 @@ public class UserVipDetailServiceImpl extends ServiceImpl<UserVipDetailDao, User
         );
         for (UserVipDetailEntity userVipDetailEntity : page.getRecords()) {
             VipGradeTypeEntity vipGradeTypeEntity = vipGradeTypeService.getById(userVipDetailEntity.getVipId());
-            userVipDetailEntity.setStatusName((StringUtils.isNotBlank(userVipDetailEntity.getSettleStatus()) && "no".equals(userVipDetailEntity.getSettleStatus())) ? "已结算" : "未结算");
+            userVipDetailEntity.setStatusName((StringUtils.isNotBlank(userVipDetailEntity.getSettleStatus()) && "no".equals(userVipDetailEntity.getSettleStatus())) ? "未结算" : "已结算");
             userVipDetailEntity.setVipGradeName(vipGradeTypeEntity.getName());
             userVipDetailEntity.setBalance(vipGradeTypeEntity.getWorth());
         }

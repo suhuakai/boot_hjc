@@ -20,8 +20,11 @@ import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -72,13 +75,19 @@ public class BaseController {
 
 
     @RequestMapping(value = "/uploadImg", method = RequestMethod.POST)
-    public R uploadImg(@RequestParam("fileUpload") MultipartFile file) {
-        try {
-            return R.ok((Object) upload(file, file.getOriginalFilename()));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return R.error();
+    public R uploadImg(@RequestParam(value = "file") MultipartFile file) throws Exception {
+        String filepath = file.getOriginalFilename();
+        String fileName = filepath.substring(filepath.lastIndexOf("/") + 1, filepath.lastIndexOf("."));
+        String fileType = filepath.substring(filepath.lastIndexOf(".")+1, filepath.length());
+
+        FileInputStream inputStream = (FileInputStream) file.getInputStream();
+
+        //获取当前时间
+        String now = new SimpleDateFormat("yy-MM-dd HH:mm:ss").format(new Date());
+        fileName = fileName+"("+now+")"+"."+fileType;
+        //文件位置
+        String fileId = Qiniuyun.upload(inputStream, fileName);
+        return R.ok(fileId);
     }
 
 
@@ -87,7 +96,7 @@ public class BaseController {
         try {
             InputStream inputStream = file.getInputStream();
             String key = UUID.randomUUID().toString() + fileNameNow;
-            Qiniuyun.upInput(key, inputStream);
+          //  Qiniuyun.(key, fileName);
             return key;
         } catch (Exception e) {
             e.printStackTrace();
