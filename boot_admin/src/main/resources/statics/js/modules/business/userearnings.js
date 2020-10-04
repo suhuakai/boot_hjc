@@ -93,7 +93,7 @@ var vm = new Vue({
 	data:{
 		showList: true,
 		title: null,
-		userEarnings: {}
+		userEarnings: {walletTypeId:-1,type:-1,settleStatus:-1}
 	},
 	methods: {
 		query: function () {
@@ -174,7 +174,12 @@ var vm = new Vue({
 		reload: function (event) {
 			vm.showList = true;
 			var page = $("#jqGrid").jqGrid('getGridParam','page');
-			$("#jqGrid").jqGrid('setGridParam',{ 
+			$("#jqGrid").jqGrid('setGridParam',{
+                postData: {
+                    "walletTypeId": vm.userEarnings.walletTypeId,
+                    "type": vm.userEarnings.type,
+                    "settleStatus": vm.userEarnings.settleStatus
+                },
                 page:page
             }).trigger("reloadGrid");
 		}

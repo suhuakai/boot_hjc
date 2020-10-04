@@ -1,126 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>LID </title>
-		<#include "/header.html">
+    <title></title>
+    <#include "/header.html">
 </head>
 <body>
 <div id="rrapp" v-cloak>
     <div v-show="showList">
+        <div class="form-group col-sm-1">
+            <input type="text" class="form-control" v-model="user.id" @keyup.enter="query" placeholder="uid">
+        </div>
+        <div class="form-group col-sm-2">
+            <input type="text" class="form-control" v-model="user.name" @keyup.enter="query" placeholder="账号">
+        </div>
+        <div class="col-md-1">
+            <select type="text" class="form-control" v-model="user.userVipId" @keyup.enter="query" placeholder="会员等级">
+                <option value="-1" >全部</option>
+                <option value="1">一星矿工</option>
+                <option value="2">二星矿工</option>
+                <option value="3">三星店家</option>
+                <option value="4">四星千户</option>
+                <option value="5">五星城主</option>
+            </select>
+        </div>
         <div class="grid-btn">
-			<#if shiro.hasPermission("business:user:save")>
-            <a class="btn btn-primary" @click="add"><i class="fa fa-plus"></i>&nbsp;新增</a>
-			</#if>
-			<#if shiro.hasPermission("business:user:update")>
-            <a class="btn btn-primary" @click="update"><i class="fa fa-pencil-square-o"></i>&nbsp;修改</a>
-			</#if>
-			<#if shiro.hasPermission("business:user:delete")>
-            <a class="btn btn-primary" @click="del"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
-			</#if>
+            <a class="btn btn-default" @click="query">查询</a>
         </div>
         <table id="jqGrid"></table>
         <div id="jqGridPager"></div>
-    </div>
-
-    <div v-show="!showList" class="panel panel-default">
-        <div class="panel-heading">{{title}}</div>
-        <form class="form-horizontal">
-														                    <div class="form-group">
-                        <div class="col-sm-2 control-label">助记词</div>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" v-model="user.mnemonic" placeholder="助记词"/>
-                        </div>
-                    </div>
-											                    <div class="form-group">
-                        <div class="col-sm-2 control-label">私钥</div>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" v-model="user.privateKey" placeholder="私钥"/>
-                        </div>
-                    </div>
-											                    <div class="form-group">
-                        <div class="col-sm-2 control-label">密码</div>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" v-model="user.password" placeholder="密码"/>
-                        </div>
-                    </div>
-											                    <div class="form-group">
-                        <div class="col-sm-2 control-label">昵称</div>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" v-model="user.name" placeholder="昵称"/>
-                        </div>
-                    </div>
-											                    <div class="form-group">
-                        <div class="col-sm-2 control-label">正常/禁用 yes/no</div>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" v-model="user.status" placeholder="正常/禁用 yes/no"/>
-                        </div>
-                    </div>
-											                    <div class="form-group">
-                        <div class="col-sm-2 control-label"></div>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" v-model="user.date" placeholder=""/>
-                        </div>
-                    </div>
-											                    <div class="form-group">
-                        <div class="col-sm-2 control-label">设备号</div>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" v-model="user.equipmentNumber" placeholder="设备号"/>
-                        </div>
-                    </div>
-											                    <div class="form-group">
-                        <div class="col-sm-2 control-label">交易密码</div>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" v-model="user.dealPassword" placeholder="交易密码"/>
-                        </div>
-                    </div>
-											                    <div class="form-group">
-                        <div class="col-sm-2 control-label">上级用户编号</div>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" v-model="user.upUserId" placeholder="上级用户编号"/>
-                        </div>
-                    </div>
-											                    <div class="form-group">
-                        <div class="col-sm-2 control-label">阶梯</div>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" v-model="user.grade" placeholder="阶梯"/>
-                        </div>
-                    </div>
-											                    <div class="form-group">
-                        <div class="col-sm-2 control-label">阶梯路径</div>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" v-model="user.gradeUrl" placeholder="阶梯路径"/>
-                        </div>
-                    </div>
-											                    <div class="form-group">
-                        <div class="col-sm-2 control-label">直推人数</div>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" v-model="user.recommendCount" placeholder="直推人数"/>
-                        </div>
-                    </div>
-											                    <div class="form-group">
-                        <div class="col-sm-2 control-label">激活码</div>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" v-model="user.identityCard" placeholder="激活码"/>
-                        </div>
-                    </div>
-											                    <div class="form-group">
-                        <div class="col-sm-2 control-label">头像地址</div>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" v-model="user.headUrl" placeholder="头像地址"/>
-                        </div>
-                    </div>
-											                    <div class="form-group">
-                        <div class="col-sm-2 control-label">用户等级明细id</div>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" v-model="user.userVipId" placeholder="用户等级明细id"/>
-                        </div>
-                    </div>
-							            <div class="form-group">
-                <div class="col-sm-2 control-label"></div>
-                <input type="button" class="btn btn-primary" id="btnSaveOrUpdate" data-loading-text="保存中..." @click="saveOrUpdate" value="确定"/>
-                &nbsp;&nbsp;<input type="button" class="btn btn-warning" @click="reload" value="返回"/>
-            </div>
-        </form>
     </div>
 </div>
 

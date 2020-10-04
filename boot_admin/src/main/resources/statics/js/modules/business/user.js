@@ -77,7 +77,7 @@ var vm = new Vue({
 	data:{
 		showList: true,
 		title: null,
-		user: {}
+		user: {userVipId:-1}
 	},
 	methods: {
 		query: function () {
@@ -155,12 +155,17 @@ var vm = new Vue({
                 vm.user = r.user;
             });
 		},
-		reload: function (event) {
-			vm.showList = true;
-			var page = $("#jqGrid").jqGrid('getGridParam','page');
-			$("#jqGrid").jqGrid('setGridParam',{ 
-                page:page
+        reload: function (event) {
+            vm.showList = true;
+            var page = $("#jqGrid").jqGrid('getGridParam', 'page');
+            $("#jqGrid").jqGrid('setGridParam', {
+                postData: {
+                    "id": vm.user.id,
+                    "name": vm.user.name,
+                    "vipGradeId": vm.user.userVipId
+                },
+                page: page
             }).trigger("reloadGrid");
-		}
+        }
 	}
 });

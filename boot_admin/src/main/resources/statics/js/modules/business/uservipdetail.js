@@ -48,7 +48,6 @@ $(function () {
                     }
                 }
             },
-			//{ label: '初始等级', name: 'originalVpiId', index: 'original_vpi_id', width: 80 }
             {
                 label: '初始等级', name: 'originalVpiId', index: 'original_vpi_id', width: 80, formatter: function (value) {
                     if (value == 1) {
@@ -102,7 +101,7 @@ var vm = new Vue({
 	data:{
 		showList: true,
 		title: null,
-		userVipDetail: {}
+		userVipDetail: {vipId: -1,settleStatus:-1,type:-1}
 	},
 	methods: {
 		query: function () {
@@ -183,7 +182,12 @@ var vm = new Vue({
 		reload: function (event) {
 			vm.showList = true;
 			var page = $("#jqGrid").jqGrid('getGridParam','page');
-			$("#jqGrid").jqGrid('setGridParam',{ 
+			$("#jqGrid").jqGrid('setGridParam',{
+                postData: {
+                    "vipId": vm.userVipDetail.vipId,
+                    "type": vm.userVipDetail.type,
+                    "settleStatus":vm.userVipDetail.settleStatus
+                },
                 page:page
             }).trigger("reloadGrid");
 		}

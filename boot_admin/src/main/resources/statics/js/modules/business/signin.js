@@ -73,7 +73,7 @@ var vm = new Vue({
 	data:{
 		showList: true,
 		title: null,
-		signin: {}
+		signin: {walletTypeId:-1,signType:-1}
 	},
 	methods: {
 		query: function () {
@@ -154,7 +154,11 @@ var vm = new Vue({
 		reload: function (event) {
 			vm.showList = true;
 			var page = $("#jqGrid").jqGrid('getGridParam','page');
-			$("#jqGrid").jqGrid('setGridParam',{ 
+			$("#jqGrid").jqGrid('setGridParam',{
+                postData: {
+                    "walletTypeId": vm.signin.walletTypeId,
+                    "signType": vm.signin.signType
+                },
                 page:page
             }).trigger("reloadGrid");
 		}
