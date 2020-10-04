@@ -66,7 +66,7 @@ public class WithdrawEntity implements Serializable {
 	/**
 	 * 订单号
 	 */
-	private long randomCode;
+	private String randomCode;
 	/**
 	 * 图片路径
 	 */
