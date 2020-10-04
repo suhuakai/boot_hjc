@@ -14,6 +14,7 @@ import org.springframework.context.annotation.PropertySource;
 
 import javax.xml.bind.ValidationException;
 import java.io.FileInputStream;
+import java.io.InputStream;
 
 @PropertySource("classpath:qiniu_client.properties")
 @Log4j2
@@ -39,7 +40,7 @@ public class Qiniuyun {
      * @return
      * @throws Exception
      */
-    public static String upload(FileInputStream fis, String fileName) throws Exception {
+    public static String upload(InputStream fis, String fileName) throws Exception {
         init();
         //构造一个带指定 Region 对象的配置类
         Configuration cfg = new Configuration(Region.region0());

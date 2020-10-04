@@ -113,7 +113,7 @@ public class BaseController {
         String fileName = filepath.substring(filepath.lastIndexOf("/") + 1, filepath.lastIndexOf("."));
         String fileType = filepath.substring(filepath.lastIndexOf(".")+1, filepath.length());
 
-        FileInputStream inputStream = (FileInputStream) multipartFile.getInputStream();
+        InputStream inputStream =  multipartFile.getInputStream();
 
         //获取当前时间
         String now = new SimpleDateFormat("yy-MM-dd HH:mm:ss").format(new Date());
