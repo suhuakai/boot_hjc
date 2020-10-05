@@ -97,7 +97,7 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
         user.setUpUserId(Integer.valueOf(user.getIdentityCard()));
         user.setIdentityCard(user.getId() + "");
         user.setDate(LocalDateTime.now());
-        //  user.setUpUserId(userUp.getId());
+        user.setIsActivate("no");
         user.setGrade(userUp.getGrade() + 1);
         user.setGradeUrl(userUp.getGradeUrl() + "-" + user.getId());
 

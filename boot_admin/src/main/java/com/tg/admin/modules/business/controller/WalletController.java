@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.tg.admin.common.validator.ValidatorUtils;
 import com.tg.admin.common.constant.ConstantCode;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,6 +29,7 @@ import com.tg.admin.common.utils.R;
  * @date 2020-10-03 20:12:01
  */
 @RestController
+@Log4j2
 @RequestMapping("business/wallet")
 public class WalletController {
     @Autowired
@@ -83,5 +85,7 @@ public class WalletController {
         walletService.removeByIds(Arrays.asList(ids));
         return R.ok();
     }
+
+
 
 }

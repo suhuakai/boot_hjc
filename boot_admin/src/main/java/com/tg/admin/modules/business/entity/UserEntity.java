@@ -8,8 +8,8 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
- * LID 
- * 
+ * LID
+ *
  * @author Amy
  * @email 411382846@qq.com
  * @date 2020-10-03 20:12:00
@@ -17,72 +17,76 @@ import java.time.LocalDateTime;
 @Data
 @TableName("user")
 public class UserEntity implements Serializable {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	/**
-	 * 
-	 */
-	@TableId
-	private Integer id;
-	/**
-	 * 助记词
-	 */
-	private String mnemonic;
-	/**
-	 * 私钥
-	 */
-	private String privateKey;
-	/**
-	 * 密码
-	 */
-	private String password;
-	/**
-	 * 昵称
-	 */
-	private String name;
-	/**
-	 * 正常/禁用 yes/no
-	 */
-	private String status;
-	/**
-	 * 
-	 */
-	private LocalDateTime date;
-	/**
-	 * 设备号
-	 */
-	private String equipmentNumber;
-	/**
-	 * 交易密码
-	 */
-	private String dealPassword;
-	/**
-	 * 上级用户编号
-	 */
-	private Integer upUserId;
-	/**
-	 * 阶梯
-	 */
-	private Integer grade;
-	/**
-	 * 阶梯路径
-	 */
-	private String gradeUrl;
-	/**
-	 * 直推人数
-	 */
-	private Integer recommendCount;
-	/**
-	 * 激活码
-	 */
-	private String identityCard;
-	/**
-	 * 头像地址
-	 */
-	private String headUrl;
-	/**
-	 * 用户等级明细id
-	 */
-	private Integer userVipId;
+    /**
+     *
+     */
+    @TableId
+    private Integer id;
+    /**
+     * 助记词
+     */
+    private String mnemonic;
+    /**
+     * 私钥
+     */
+    private String privateKey;
+    /**
+     * 密码
+     */
+    private String password;
+    /**
+     * 昵称
+     */
+    private String name;
+    /**
+     * 正常/禁用 yes/no
+     */
+    private String status;
+    /**
+     *
+     */
+    private LocalDateTime date;
+    /**
+     * 设备号
+     */
+    private String equipmentNumber;
+    /**
+     * 交易密码
+     */
+    private String dealPassword;
+    /**
+     * 上级用户编号
+     */
+    private Integer upUserId;
+    /**
+     * 阶梯
+     */
+    private Integer grade;
+    /**
+     * 阶梯路径
+     */
+    private String gradeUrl;
+    /**
+     * 直推人数
+     */
+    private Integer recommendCount;
+    /**
+     * 激活码
+     */
+    private String identityCard;
+    /**
+     * 头像地址
+     */
+    private String headUrl;
+    /**
+     * 用户等级明细id
+     */
+    private Integer userVipId;
+    /**
+     * 是否需要激活 yes/no
+     */
+    private String isActivate;
 
 }

@@ -45,6 +45,16 @@ $(function () {
                         return '<span class="label label-danger" style="background-color:#29ccd3">五星城主</span>';
                     }
                 }
+            },
+            {
+                label: '是否激活', name: 'isActivate', index: 'is_activate', width: 80, formatter: function (value) {
+                    if (value == 'yes') {
+                        return '<span class="label label-primary" style="background-color:#dcb989 ">是</span>';
+                    }
+                    if (value == 'no') {
+                        return '<span class="label label-info" style="background-color:#bacad9 ">否</span>';
+                    }
+                }
             }
         ],
 		viewrecords: true,
@@ -150,6 +160,36 @@ var vm = new Vue({
              }, function(){
              });
 		},
+        activate: function (event) {
+            var ids = getSelectedRows();
+            if (ids == null) {
+                return;
+            }
+            var lock = false;
+            layer.confirm('确定要激活？', {
+                btn: ['确定', '取消'] //按钮
+            }, function () {
+                if (!lock) {
+                    lock = true;
+                    // console.info(ids);
+                    $.ajax({
+                        type: "POST",
+                        url: baseURL + "business/user/activate",
+                        contentType: "application/json",
+                        data: JSON.stringify(ids),
+                        success: function (r) {
+                            if (r.code === 0) {
+                                layer.msg("操作成功", {icon: 1});
+                                $("#jqGrid").trigger("reloadGrid");
+                            } else {
+                                layer.alert(r.msg);
+                            }
+                        }
+                    });
+                }
+            }, function () {
+            });
+        },
 		getInfo: function(id){
 			$.get(baseURL + "business/user/info/"+id, function(r){
                 vm.user = r.user;

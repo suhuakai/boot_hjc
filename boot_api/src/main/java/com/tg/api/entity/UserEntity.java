@@ -96,5 +96,9 @@ public class UserEntity implements Serializable {
 	 */
 	private Integer userVipId;
 
+	/**
+	 * 是否需要激活 yes/no
+	 */
+	private String isActivate;
 
 }

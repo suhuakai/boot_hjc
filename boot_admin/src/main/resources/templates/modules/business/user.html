@@ -23,13 +23,16 @@
                 <option value="5">五星城主</option>
             </select>
         </div>
-        <div class="grid-btn">
             <a class="btn btn-default" @click="query">查询</a>
+            <#if shiro.hasPermission("business:user:activate")>
+            <a class="btn btn-primary" @click="activate">&nbsp;激活</a>
+        </#if>
         </div>
         <table id="jqGrid"></table>
         <div id="jqGridPager"></div>
     </div>
 </div>
+
 
 <script src="${request.contextPath}/statics/js/modules/business/user.js?_${.now?long}"></script>
 </body>

@@ -17,6 +17,14 @@
 			<#if shiro.hasPermission("business:withdraw:delete")>
             <a class="btn btn-primary" @click="del"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
 			</#if>
+
+            <#if shiro.hasPermission("business:withdraw:audit")>
+            <a class="btn btn-primary" @click="audit">&nbsp;通过</a>
+            </#if>
+            <#if shiro.hasPermission("business:withdraw:failing")>
+            <a class="btn btn-info" @click="failing">&nbsp;失败</a>
+            </#if>
+
         </div>
         <table id="jqGrid"></table>
         <div id="jqGridPager"></div>
@@ -135,6 +143,25 @@
         </form>
     </div>
 </div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img id="img_url" src="" style="width: 100%;height: 100%"/>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>v
 
 <script src="${request.contextPath}/statics/js/modules/business/withdraw.js?_${.now?long}"></script>
 </body>

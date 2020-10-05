@@ -158,6 +158,64 @@ var vm = new Vue({
              }, function(){
              });
 		},
+        audit: function (event) {
+            var ids = getSelectedRows();
+            if (ids == null) {
+                return;
+            }
+            var lock = false;
+            layer.confirm('确定要通过？', {
+                btn: ['确定', '取消'] //按钮
+            }, function () {
+                if (!lock) {
+                    lock = true;
+                    $.ajax({
+                        type: "POST",
+                        url: baseURL + "business/withdraw/audit",
+                        contentType: "application/json",
+                        data: JSON.stringify(ids),
+                        success: function (r) {
+                            if (r.code == 0) {
+                                layer.msg("操作成功", {icon: 1});
+                                $("#jqGrid").trigger("reloadGrid");
+                            } else {
+                                layer.alert(r.msg);
+                            }
+                        }
+                    });
+                }
+            }, function () {
+            });
+        },
+        failing: function (event) {
+            var ids = getSelectedRows();
+            if (ids == null) {
+                return;
+            }
+            var lock = false;
+            layer.confirm('确定要失败？', {
+                btn: ['确定', '取消'] //按钮
+            }, function () {
+                if (!lock) {
+                    lock = true;
+                    $.ajax({
+                        type: "POST",
+                        url: baseURL + "business/withdraw/failing",
+                        contentType: "application/json",
+                        data: JSON.stringify(ids),
+                        success: function (r) {
+                            if (r.code == 0) {
+                                layer.msg("操作成功", {icon: 1});
+                                $("#jqGrid").trigger("reloadGrid");
+                            } else {
+                                layer.alert(r.msg);
+                            }
+                        }
+                    });
+                }
+            }, function () {
+            });
+        },
 		getInfo: function(id){
 			$.get(baseURL + "business/withdraw/info/"+id, function(r){
                 vm.withdraw = r.withdraw;

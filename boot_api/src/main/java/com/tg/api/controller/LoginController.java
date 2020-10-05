@@ -69,6 +69,9 @@ public class LoginController extends BaseController {
         if (null != baseUserInfo && "no".equals(baseUserInfo.getStatus())) {
             log.error(baseUserInfo.getStatus() + ":账号已经停用");
             throw new RRException("账号已经停用");
+        } if (null != baseUserInfo && "no".equals(baseUserInfo.getIsActivate())) {
+            log.error(baseUserInfo.getStatus() + ":账号未激活，请联系管理员");
+            throw new RRException("账号未激活，请联系管理员");
         }
         UserVo userVo = new UserVo();
         BeanUtils.copyProperties(baseUserInfo, userVo);

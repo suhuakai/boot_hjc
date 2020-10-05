@@ -120,7 +120,7 @@ public class BaseController {
         fileName = fileName+"("+now+")"+"."+fileType;
         //文件位置
         String fileId = Qiniuyun.upload(inputStream, fileName);
-        return R.ok(fileId);
+        return R.ok((Object) fileId);
     }
 
 
