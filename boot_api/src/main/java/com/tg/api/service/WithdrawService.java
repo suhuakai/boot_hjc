@@ -17,6 +17,9 @@ public interface WithdrawService extends IService<WithdrawEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
 
+
+    void saveWithdraw(WithdrawEntity withdrawEntity);
+
     WithdrawEntity insert(WithdrawEntity withdrawEntity);
 }
 

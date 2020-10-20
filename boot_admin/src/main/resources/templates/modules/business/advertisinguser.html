@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+		<#include "/header.html">
+</head>
+<body>
+<div id="rrapp" v-cloak>
+    <div v-show="showList">
+        <div class="form-group col-sm-1">
+            <input type="text" class="form-control" v-model="advertisingUser.userId" @keyup.enter="query" placeholder="uid">
+        </div>
+        <div class="form-group col-sm-1">
+            <select type="text" class="form-control" v-model="advertisingUser.status" @keyup.enter="query" placeholder="状态">
+                <option value="-1">全部</option>
+                <option value="subscribe">预约中</option>
+                <option value="yiWatch">已观看</option>
+                <option value="underway">进行中</option>
+                <option value="principalRefunded">本金已退</option>
+                <option value="accomplish">完成</option>
+            </select>
+        </div>
+        <div class="grid-btn">
+            <a class="btn btn-default" @click="query">查询</a>
+            <#if shiro.hasPermission("business:advertisingUser:audit")>
+                 <a class="btn btn-primary" @click="audit">&nbsp;通过</a>
+            </#if>
+            <#if shiro.hasPermission("business:advertisingUser:accelerate")>
+                <a class="btn btn-info" @click="accelerate">&nbsp;加输结束</a>
+            </#if>
+            </div>
+        <table id="jqGrid"></table>
+        <div id="jqGridPager"></div>
+    </div>
+
+    <div v-show="!showList" class="panel panel-default">
+        <div class="panel-heading">{{title}}</div>
+        <form class="form-horizontal">
+					 <div class="form-group">
+                        <div class="col-sm-2 control-label">消耗金卷</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="advertisingUser.number" placeholder="消耗金卷"/>
+                        </div>
+                    </div>
+											                    <div class="form-group">
+                        <div class="col-sm-2 control-label">预约id</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="advertisingUser.advertistingId" placeholder="预约id"/>
+                        </div>
+                    </div>
+											                    <div class="form-group">
+                        <div class="col-sm-2 control-label">预约的标题</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="advertisingUser.advertistingName" placeholder="预约的标题"/>
+                        </div>
+                    </div>
+											                    <div class="form-group">
+                        <div class="col-sm-2 control-label">用户id</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="advertisingUser.userId" placeholder="用户id"/>
+                        </div>
+                    </div>
+											                    <div class="form-group">
+                        <div class="col-sm-2 control-label">购买钱包类型</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="advertisingUser.walletTypeId" placeholder="购买钱包类型"/>
+                        </div>
+                    </div>
+											                    <div class="form-group">
+                        <div class="col-sm-2 control-label">预约时间</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="advertisingUser.dateSubscribe" placeholder="预约时间"/>
+                        </div>
+                    </div>
+											                    <div class="form-group">
+                        <div class="col-sm-2 control-label">预约中，已观看，进行中，本金已退，完成</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="advertisingUser.status" placeholder="预约中，已观看，进行中，本金已退，完成"/>
+                        </div>
+                    </div>
+											                    <div class="form-group">
+                        <div class="col-sm-2 control-label">加入时间</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="advertisingUser.dateUnderway" placeholder="加入时间"/>
+                        </div>
+                    </div>
+											                    <div class="form-group">
+                        <div class="col-sm-2 control-label">本金退出时间</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="advertisingUser.datePrincipalrefunded" placeholder="本金退出时间"/>
+                        </div>
+                    </div>
+					 <div class="form-group">
+                        <div class="col-sm-2 control-label">完成时间</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="advertisingUser.dateAccomplish" placeholder="完成时间"/>
+                        </div>
+                    </div>
+					<div class="form-group">
+                        <div class="col-sm-2 control-label">观看时间</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="advertisingUser.dateYiWatch" placeholder="观看时间"/>
+                        </div>
+                    </div>
+					<div class="form-group">
+                        <div class="col-sm-2 control-label">金卷价格</div>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" v-model="advertisingUser.price" placeholder="金卷价格"/>
+                        </div>
+                    </div>
+							            <div class="form-group">
+                <div class="col-sm-2 control-label"></div>
+                <input type="button" class="btn btn-primary" id="btnSaveOrUpdate" data-loading-text="保存中..." @click="saveOrUpdate" value="确定"/>
+                &nbsp;&nbsp;<input type="button" class="btn btn-warning" @click="reload" value="返回"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="${request.contextPath}/statics/js/modules/business/advertisinguser.js?_${.now?long}"></script>
+</body>
+</html>

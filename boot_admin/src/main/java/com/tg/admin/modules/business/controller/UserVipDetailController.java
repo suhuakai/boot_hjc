@@ -43,45 +43,4 @@ public class UserVipDetailController {
         return R.ok().put("page",page);
     }
 
-    /**
-     * 信息
-     */
-    @RequestMapping("/info/{id}")
-    public R info(@PathVariable("id") Integer id){
-        UserVipDetailEntity userVipDetail = userVipDetailService.getById(id);
-        return R.ok().put("userVipDetail", userVipDetail);
-
-    }
-
-    /**
-     * 保存
-     */
-    @RequestMapping("/save")
-    @RequiresPermissions("business:uservipdetail:save")
-    public R save(@RequestBody UserVipDetailEntity userVipDetail){
-        userVipDetailService.save(userVipDetail);
-        return R.ok();
-    }
-
-    /**
-     * 修改
-     */
-    @RequestMapping("/update")
-    @RequiresPermissions("business:uservipdetail:update")
-    public R update(@RequestBody UserVipDetailEntity userVipDetail){
-        ValidatorUtils.validateEntity(userVipDetail);
-        userVipDetailService.updateById(userVipDetail);
-        return R.ok();
-    }
-
-    /**
-     * 删除
-     */
-    @RequestMapping("/delete")
-    @RequiresPermissions("business:uservipdetail:delete")
-    public R delete(@RequestBody Integer[] ids){
-        userVipDetailService.removeByIds(Arrays.asList(ids));
-        return R.ok();
-    }
-
 }

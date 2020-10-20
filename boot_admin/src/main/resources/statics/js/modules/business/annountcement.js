@@ -4,9 +4,9 @@ $(function () {
         datatype: "json",
         colModel: [			
 			{ label: 'id', name: 'id', index: 'id', width: 50, key: true },
-			{ label: '', name: 'date', index: 'date', width: 80 }, 			
-			{ label: '标题', name: 'topic', index: 'topic', width: 80 }, 			
-			{ label: '内容', name: 'contant', index: 'contant', width: 80 }			
+            { label: '标题', name: 'topic', index: 'topic', width: 80 },
+			{ label: '内容', name: 'contant', index: 'contant', width: 80 },
+            { label: '时间', name: 'date', index: 'date', width: 80 }
         ],
 		viewrecords: true,
     height: 500,         rowNum: 10, 		rowList : [30,50,100],
@@ -31,6 +31,28 @@ $(function () {
         	$("#jqGrid").closest(".ui-jqgrid-bdiv").css({ "overflow-x" : "hidden" }); 
         }
     });
+
+    editor1 = new window.wangEditor('#editor');
+    editor1.customConfig.menus = [
+        'head',  // 标题
+        'bold',  // 粗体
+        'fontSize',  // 字号
+        'fontName',  // 字体
+        'italic',  // 斜体
+        'underline',  // 下划线
+        'strikeThrough',  // 删除线
+        'foreColor',  // 文字颜色
+        'backColor',  // 背景颜色
+        'link',  // 插入链接
+        'list',  // 列表
+        'justify',  // 对齐方式
+        'image',  // 插入图片
+        'video',  // 插入视频
+    ];
+    editor1.customConfig.uploadImgServer = baseURL + '/notice/upImg';
+    editor1.customConfig.uploadFileName = 'image';
+    editor1.customConfig.zIndex = 500;
+    editor1.create();
 });
 
 var vm = new Vue({
@@ -62,6 +84,7 @@ var vm = new Vue({
 		saveOrUpdate: function (event) {
 		    $('#btnSaveOrUpdate').button('loading').delay(1000).queue(function() {
                 var url = vm.annountcement.id == null ? "business/annountcement/save" : "business/annountcement/update";
+                vm.annountcement.contant = editor1.txt.html();
                 $.ajax({
                     type: "POST",
                     url: baseURL + url,
@@ -114,6 +137,7 @@ var vm = new Vue({
 		getInfo: function(id){
 			$.get(baseURL + "business/annountcement/info/"+id, function(r){
                 vm.annountcement = r.annountcement;
+                editor1.txt.html(r.annountcement.contant);
             });
 		},
 		reload: function (event) {

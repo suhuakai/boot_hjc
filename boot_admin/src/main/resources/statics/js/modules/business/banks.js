@@ -7,9 +7,8 @@ $(function () {
 			{ label: '姓名', name: 'name', index: 'name', width: 80 }, 			
 			{ label: '银行类型', name: 'banksType', index: 'banks_type', width: 80 }, 			
 			{ label: '子行', name: 'banksSonType', index: 'banks_son_type', width: 80 }, 			
-			{ label: '卡号', name: 'cardNumber', index: 'card_number', width: 80 }, 			
-			{ label: '', name: 'status', index: 'status', width: 80 }, 			
-			{ label: '', name: 'date', index: 'date', width: 80 }			
+			{ label: '卡号', name: 'cardNumber', index: 'card_number', width: 80 },
+            { label: '收款码', name: 'url', index: 'url', width: 80 }
         ],
 		viewrecords: true,
     height: 500,         rowNum: 10, 		rowList : [30,50,100],
@@ -114,6 +113,23 @@ var vm = new Vue({
              }, function(){
              });
 		},
+        imgUploading: function() {
+            var formData = new FormData();
+            var crowd_file = $('#file')[0].files[0];
+            formData.append("file", crowd_file);
+            $.ajax({
+                type: "POST",
+                url: baseURL + "business/banks/imgUploading",
+                processData: false,
+                dataType: "json",
+                contentType: false,
+                data: formData,
+                success: function (r) {
+                    $('#location').val(r.data);
+                    vm.banks.url = r.data;
+                }
+            });
+        },
 		getInfo: function(id){
 			$.get(baseURL + "business/banks/info/"+id, function(r){
                 vm.banks = r.banks;

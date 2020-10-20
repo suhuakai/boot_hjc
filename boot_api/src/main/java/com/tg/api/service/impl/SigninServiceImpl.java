@@ -36,7 +36,7 @@ public class SigninServiceImpl extends ServiceImpl<SigninDao, SigninEntity> impl
     public PageUtils queryPage(Map<String, Object> params) {
         IPage<SigninEntity> page = this.page(
                 new Query<SigninEntity>().getPage(params),
-                new QueryWrapper<SigninEntity>().eq("sign_type", params.get("signType")).eq("user_id", params.get("userId"))
+                new QueryWrapper<SigninEntity>().eq("sign_type", params.get("signType")).eq("user_id", params.get("userId")).orderByDesc("sign_date")
         );
         for (SigninEntity pager : page.getRecords()) {
             if (1 == pager.getSignType()) {
@@ -60,44 +60,54 @@ public class SigninServiceImpl extends ServiceImpl<SigninDao, SigninEntity> impl
     @Override
     @Transactional
     public void clickSign(Integer userId, Integer signType) {
-        //明细收益
-        UserEarningsEntity earTj = new UserEarningsEntity();
-        earTj.setDate(LocalDateTime.now());
-        earTj.setUserId(userId);
-        earTj.setNumber(new BigDecimal(1));
-        earTj.setSettleStatus("no");
-        BalanceEntity balanceEntity = balanceService.getById(1);
-
-        if (balanceEntity.getBalanceMoney().compareTo(new BigDecimal(1)) < 0) {
-            earTj.setWalletTypeId(1);
-            balanceEntity.setBalanceMoney(balanceEntity.getBalanceMoney().subtract(new BigDecimal(1)));
-            balanceService.updateById(balanceEntity);
-        } else {
-            earTj.setWalletTypeId(3);
-        }
-        if (signType == 1) {  //签到一次被置灰
-            earTj.setType("sign");
-        } else if (signType == 2) {   //关注
-            earTj.setType("attention");
-        } else {
-            earTj.setType("browse");
-        }
-
-        userEarningsService.save(earTj);
 
         SigninEntity signinEntity = baseMapper.selectOne(new QueryWrapper<SigninEntity>().eq("user_id", userId)
                 .like("sign_date", DateUtils.formatDateTime(new Date())).eq("sign_type", signType));
         if (signinEntity != null) {
             throw new RRException("今天已签到或已关注或已浏览");
         }
-
         //签到记录
         signinEntity = new SigninEntity();
-        signinEntity.setSignBalance(new BigDecimal(1));
+
+        UserEarningsEntity userEarningsEntity = new UserEarningsEntity();
+
+        userEarningsEntity.setUserId(userId);
+        userEarningsEntity.setWalletTypeId(2);
+        userEarningsEntity.setStatus("earnings");
+        userEarningsEntity.setType("sign");
+        userEarningsEntity.setSettleStatus("no");
+        BalanceEntity balanceEntity = balanceService.getById(1);
+
+        if (signType == 1) {  //签到一次被置灰
+
+            userEarningsEntity.setNumber(new BigDecimal("1"));
+            userEarningsEntity.setNumberZifu("+" + userEarningsEntity.getNumber());
+            userEarningsEntity.setContent("签到赠送金卷：" + userEarningsEntity.getNumberZifu());
+            userEarningsEntity.setType("sign");
+        } else if (signType == 2) {   //关注
+            userEarningsEntity.setNumber(new BigDecimal("1"));
+            userEarningsEntity.setNumberZifu("+" + userEarningsEntity.getNumber());
+            userEarningsEntity.setContent("关注赠送金卷：" + userEarningsEntity.getNumberZifu());
+            userEarningsEntity.setType("attention");
+        } else {
+            userEarningsEntity.setNumber(new BigDecimal("3"));
+            userEarningsEntity.setNumberZifu("+" + userEarningsEntity.getNumber());
+            userEarningsEntity.setContent("浏览点赞赠送金卷：" + userEarningsEntity.getNumberZifu());
+            userEarningsEntity.setType("attention");
+        }
+
+        balanceEntity.setBalanceMoney(balanceEntity.getBalanceMoney().subtract(userEarningsEntity.getNumber()));
+        balanceService.updateById(balanceEntity);
+
+        signinEntity.setSignBalance(userEarningsEntity.getNumber());
+        signinEntity.setWalletTypeId(2);
         signinEntity.setSignDate(LocalDateTime.now());
         signinEntity.setSignType(signType);
-        signinEntity.setWalletTypeId(1);
         signinEntity.setUserId(userId);
+
+        userEarningsEntity.setDate(LocalDateTime.now());
+        userEarningsService.save(userEarningsEntity);
+
         baseMapper.insert(signinEntity);
     }
 

@@ -48,38 +48,6 @@ public class WithdrawController {
         return R.ok().put("withdraw", withdraw);
 
     }
-
-    /**
-     * 保存
-     */
-    @RequestMapping("/save")
-    @RequiresPermissions("business:withdraw:save")
-    public R save(@RequestBody WithdrawEntity withdraw){
-        withdrawService.save(withdraw);
-        return R.ok();
-    }
-
-    /**
-     * 修改
-     */
-    @RequestMapping("/update")
-    @RequiresPermissions("business:withdraw:update")
-    public R update(@RequestBody WithdrawEntity withdraw){
-        ValidatorUtils.validateEntity(withdraw);
-        withdrawService.updateById(withdraw);
-        return R.ok();
-    }
-
-    /*/
-     * 删除
-     */
-    @RequestMapping("/delete")
-    @RequiresPermissions("business:withdraw:delete")
-    public R delete(@RequestBody Integer[] ids){
-        withdrawService.removeByIds(Arrays.asList(ids));
-        return R.ok();
-    }
-
     /**
      * 通过
      */

@@ -1,16 +1,15 @@
 package com.tg.admin.modules.business.service.impl;
 
 import com.tg.admin.modules.business.dao.WalletDao;
-import com.tg.admin.modules.business.entity.UserEarningsDetailEntity;
-import com.tg.admin.modules.business.entity.WalletEntity;
-import com.tg.admin.modules.business.service.UserEarningsDetailService;
-import com.tg.admin.modules.business.service.WalletService;
+import com.tg.admin.modules.business.entity.*;
+import com.tg.admin.modules.business.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Map;
+
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -18,9 +17,9 @@ import com.tg.admin.common.utils.PageUtils;
 import com.tg.admin.common.utils.Query;
 
 import com.tg.admin.modules.business.dao.WithdrawDao;
-import com.tg.admin.modules.business.entity.WithdrawEntity;
-import com.tg.admin.modules.business.service.WithdrawService;
 import org.springframework.transaction.annotation.Transactional;
+
+import javax.annotation.Resource;
 
 
 @Service("withdrawService")
@@ -29,16 +28,33 @@ public class WithdrawServiceImpl extends ServiceImpl<WithdrawDao, WithdrawEntity
     UserEarningsDetailService userEarningsDetailService;
     @Autowired
     WalletService walletService;
-    @Autowired
+    @Resource
     WalletDao walletDao;
+
+    @Autowired
+    WalletTypeService walletTypeService;
+
+    @Autowired
+    UserEarningsService userEarningsService;
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
+        QueryWrapper<WithdrawEntity> queryWrapper = new QueryWrapper<>();
+        if (params.containsKey("userId") && !"".equals(params.get("userId"))) {
+            queryWrapper.eq("user_id", params.get("userId"));
+        }
+        if (params.containsKey("useType") && !"-1".equals(params.get("useType"))) {
+            queryWrapper.eq("use_type", params.get("useType"));
+        }
+        if (params.containsKey("type") && !"-1".equals(params.get("type"))) {
+            queryWrapper.eq("type", params.get("type"));
+        }
+
+
         IPage<WithdrawEntity> page = this.page(
                 new Query<WithdrawEntity>().getPage(params),
-                new QueryWrapper<WithdrawEntity>()
+                queryWrapper
         );
-
         return new PageUtils(page);
     }
 
@@ -46,9 +62,6 @@ public class WithdrawServiceImpl extends ServiceImpl<WithdrawDao, WithdrawEntity
     @Transactional(rollbackFor = Exception.class)
     public boolean audit(Integer id, Integer type) {
         WithdrawEntity withdraw = this.getById(id);
-//        if (withdraw.getType().equals("recharge")) {
-//            return false;
-//        }
         withdraw.setAccomplishDate(LocalDateTime.now());
         if (!withdraw.getStatus().equals("audit")) {
             return true;
@@ -58,50 +71,27 @@ public class WithdrawServiceImpl extends ServiceImpl<WithdrawDao, WithdrawEntity
             withdraw.setStatus("succeed");
             // 提现审核成功
             if (withdraw.getType().equals("withdraw")) {
-                // 提现审核成功
-                UserEarningsDetailEntity earDk = new UserEarningsDetailEntity();
-                earDk.setUserId(withdraw.getUserId());
-                earDk.setNumber(withdraw.getFee().setScale(2, BigDecimal.ROUND_DOWN));
-                earDk.setNumberZifu("+" + earDk.getNumber());
-                earDk.setOrderId(withdraw.getId());
-                earDk.setWalletTypeId(3);
-                earDk.setContent("提现成功获得抵扣卷：" + earDk.getNumberZifu());
-                earDk.setDate(LocalDateTime.now());
-                earDk.setType("operation");
-                //     earDk.setWeightingRate(u.getWeightingRate());
-                earDk.setUpUserId(0);
-                earDk.setEarningsType("not");
-                earDk.setGrade(0);
-                earDk.setSettleStatus("no");
-                //   earDk.setShuntRate(dic.getConsumeVoucher());
-                earDk.setDate(LocalDateTime.now());
-                userEarningsDetailService.save(earDk);
-
-                // 提现审核成功
-                UserEarningsDetailEntity earDkTx = new UserEarningsDetailEntity();
-                earDkTx.setUserId(withdraw.getUserId());
-                earDkTx.setNumber(withdraw.getNumber().subtract(withdraw.getFee()).setScale(2, BigDecimal.ROUND_DOWN));
-                earDkTx.setNumberZifu("-" + earDkTx.getNumber());
-                earDkTx.setOrderId(withdraw.getId());
-                earDkTx.setWalletTypeId(2);
-                earDkTx.setContent("提现成功扣除福豆：" + earDkTx.getNumberZifu());
-                earDkTx.setDate(LocalDateTime.now());
-                earDkTx.setType("operation");
-                //     earDk.setWeightingRate(u.getWeightingRate());
-                earDkTx.setUpUserId(0);
-                earDkTx.setEarningsType("not");
-                earDkTx.setGrade(0);
-                earDkTx.setSettleStatus("yes");
-                //   earDk.setShuntRate(dic.getConsumeVoucher());
-                earDkTx.setDate(LocalDateTime.now());
-                userEarningsDetailService.save(earDkTx);
-
 
             } else {
-                WalletEntity wallet = walletService.getOne(new QueryWrapper<WalletEntity>().eq("user_id", withdraw.getUserId()).eq("wallet_type_id", 1));
+                WalletTypeEntity walletTypeEntity = walletTypeService.getById(2);
+                BigDecimal number = withdraw.getNumber().divide(walletTypeEntity.getPrice(), 4, BigDecimal.ROUND_DOWN);
+
+                WalletEntity wallet = walletService.getOne(new QueryWrapper<WalletEntity>().eq("user_id", withdraw.getUserId()).eq("wallet_type_id", 2));
                 WalletEntity walletLock = walletDao.getLock(wallet.getId());
-                walletLock.setBalance(withdraw.getNumber());
+                walletLock.setBalance(number);
                 walletDao.increaseWalletBalance(walletLock);
+
+                UserEarningsEntity userEarningsEntity = new UserEarningsEntity();
+                userEarningsEntity.setNumber(number);
+                userEarningsEntity.setUserId(wallet.getUserId());
+                userEarningsEntity.setWalletTypeId(2);
+                userEarningsEntity.setStatus("operation");
+                userEarningsEntity.setType("yes");
+                userEarningsEntity.setSettleStatus("yes");
+                userEarningsEntity.setNumberZifu("+" + userEarningsEntity.getNumber());
+                userEarningsEntity.setContent("充值金券：" + userEarningsEntity.getNumberZifu() + "金卷单价：" + walletTypeEntity.getPrice());
+                userEarningsEntity.setDate(LocalDateTime.now());
+                userEarningsService.save(userEarningsEntity);
             }
         } else {
             withdraw.setStatus("failed");

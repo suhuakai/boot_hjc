@@ -1,23 +1,22 @@
 package com.tg.admin.modules.business.controller;
 
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.Map;
+import java.util.UUID;
 
+import com.tg.admin.common.qiniuyun.Qiniuyun;
 import com.tg.admin.common.validator.ValidatorUtils;
 import com.tg.admin.common.constant.ConstantCode;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.tg.admin.modules.business.entity.BanksEntity;
 import com.tg.admin.modules.business.service.BanksService;
 import com.tg.admin.common.utils.PageUtils;
 import com.tg.admin.common.utils.R;
-
+import org.springframework.web.multipart.MultipartFile;
 
 
 /**
@@ -32,6 +31,21 @@ import com.tg.admin.common.utils.R;
 public class BanksController {
     @Autowired
     private BanksService banksService;
+
+
+    @RequestMapping(value = "/imgUploading", method = RequestMethod.POST)
+    public R imgUploading(@RequestParam("file") MultipartFile file) {
+        String fileNameNow = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
+        String key = UUID.randomUUID().toString() + fileNameNow;
+        try {
+            InputStream inputStream = file.getInputStream();
+            Qiniuyun.upInput(key, inputStream);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return R.error("失败");
+        }
+        return R.ok((Object) key);
+    }
 
     /**
      * 列表

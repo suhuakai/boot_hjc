@@ -55,36 +55,6 @@ public class WalletController {
 
     }
 
-    /**
-     * 保存
-     */
-    @RequestMapping("/save")
-    @RequiresPermissions("business:wallet:save")
-    public R save(@RequestBody WalletEntity wallet){
-        walletService.save(wallet);
-        return R.ok();
-    }
-
-    /**
-     * 修改
-     */
-    @RequestMapping("/update")
-    @RequiresPermissions("business:wallet:update")
-    public R update(@RequestBody WalletEntity wallet){
-        ValidatorUtils.validateEntity(wallet);
-        walletService.updateById(wallet);
-        return R.ok();
-    }
-
-    /**
-     * 删除
-     */
-    @RequestMapping("/delete")
-    @RequiresPermissions("business:wallet:delete")
-    public R delete(@RequestBody Integer[] ids){
-        walletService.removeByIds(Arrays.asList(ids));
-        return R.ok();
-    }
 
 
 

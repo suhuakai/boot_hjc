@@ -131,35 +131,6 @@ var vm = new Vue({
                 });
 			});
 		},
-		del: function (event) {
-			var ids = getSelectedRows();
-			if(ids == null){
-				return ;
-			}
-			var lock = false;
-            layer.confirm('确定要删除选中的记录？', {
-                btn: ['确定','取消'] //按钮
-            }, function(){
-               if(!lock) {
-                    lock = true;
-		            $.ajax({
-                        type: "POST",
-                        url: baseURL + "business/user/delete",
-                        contentType: "application/json",
-                        data: JSON.stringify(ids),
-                        success: function(r){
-                            if(r.code == 0){
-                                layer.msg("操作成功", {icon: 1});
-                                $("#jqGrid").trigger("reloadGrid");
-                            }else{
-                                layer.alert(r.msg);
-                            }
-                        }
-				    });
-			    }
-             }, function(){
-             });
-		},
         activate: function (event) {
             var ids = getSelectedRows();
             if (ids == null) {
@@ -171,9 +142,8 @@ var vm = new Vue({
             }, function () {
                 if (!lock) {
                     lock = true;
-                    // console.info(ids);
                     $.ajax({
-                        type: "POST",
+                        type: "post",
                         url: baseURL + "business/user/activate",
                         contentType: "application/json",
                         data: JSON.stringify(ids),
@@ -202,7 +172,7 @@ var vm = new Vue({
                 postData: {
                     "id": vm.user.id,
                     "name": vm.user.name,
-                    "vipGradeId": vm.user.userVipId
+                    "userVipId": vm.user.userVipId
                 },
                 page: page
             }).trigger("reloadGrid");

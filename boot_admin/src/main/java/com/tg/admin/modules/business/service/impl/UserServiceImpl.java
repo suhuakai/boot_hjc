@@ -43,9 +43,6 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
         if (params.containsKey("userVipId") && !"-1".equals(params.get("userVipId")) && !"".equals(params.get("userVipId"))) {
             queryWrapper.eq("user_vip_id", params.get("userVipId"));
         }
-        if (params.containsKey("mnemonic") && !"-1".equals(params.get("mnemonic")) && !"".equals(params.get("mnemonic"))) {
-            queryWrapper.eq("mnemonic", params.get("mnemonic"));
-        }
         IPage<UserEntity> page = this.page(
                 new Query<UserEntity>().getPage(params),
                 queryWrapper

@@ -20,4 +20,17 @@ public class UserVo extends UserEntity {
      private  String vipLevel;
      private BigDecimal earnings;
      private BigDecimal earnMoney ;
+
+     @Override
+     public String toString() {
+          return "UserVo{" +
+                  "token='" + token + '\'' +
+                  ", confirmPwd='" + confirmPwd + '\'' +
+                  ", confirmDealPwd='" + confirmDealPwd + '\'' +
+                  ", address='" + address + '\'' +
+                  ", vipLevel='" + vipLevel + '\'' +
+                  ", earnings=" + earnings +
+                  ", earnMoney=" + earnMoney +
+                  '}';
+     }
 }

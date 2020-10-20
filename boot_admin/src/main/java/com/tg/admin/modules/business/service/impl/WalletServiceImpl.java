@@ -20,7 +20,10 @@ public class WalletServiceImpl extends ServiceImpl<WalletDao, WalletEntity> impl
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
         QueryWrapper<WalletEntity> queryWrapper = new QueryWrapper<>();
-        if (params.containsKey("walletTypeId") && !"".equals(params.get("walletTypeId"))) {
+        if (params.containsKey("userId") && !"".equals(params.get("userId"))) {
+            queryWrapper.eq("user_id", params.get("userId"));
+        }
+        if (params.containsKey("walletTypeId") && !"-1".equals(params.get("walletTypeId"))) {
             queryWrapper.eq("wallet_type_id", params.get("walletTypeId"));
         }
         IPage<WalletEntity> page = this.page(

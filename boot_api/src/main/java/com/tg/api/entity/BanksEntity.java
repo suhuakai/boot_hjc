@@ -49,4 +49,7 @@ public class BanksEntity implements Serializable {
 	 */
 	private LocalDateTime date;
 
+	private String type;
+
+	private String url;
 }

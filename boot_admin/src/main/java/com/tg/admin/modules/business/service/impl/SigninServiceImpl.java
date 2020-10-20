@@ -25,6 +25,9 @@ public class SigninServiceImpl extends ServiceImpl<SigninDao, SigninEntity> impl
         if (params.containsKey("signType") && !"-1".equals(params.get("signType")) && !"".equals(params.get("signType"))) {
             qw.eq("sign_type", params.get("signType"));
         }
+        if (params.containsKey("userId")  && !"".equals(params.get("userId"))) {
+            qw.eq("user_id", params.get("userId"));
+        }
         IPage<SigninEntity> page = this.page(
                 new Query<SigninEntity>().getPage(params),
                 qw

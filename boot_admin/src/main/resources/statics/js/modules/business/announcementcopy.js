@@ -4,10 +4,9 @@ $(function () {
         datatype: "json",
         colModel: [			
 			{ label: 'id', name: 'id', index: 'id', width: 50, key: true },
-			{ label: '', name: 'title', index: 'title', width: 80 }, 			
-			{ label: '', name: 'body', index: 'body', width: 80 }, 			
-			{ label: '', name: 'createDate', index: 'create_date', width: 80 }, 			
-			{ label: '', name: 'type', index: 'type', width: 80 }			
+			{ label: '标题', name: 'title', index: 'title', width: 80 },
+			{ label: '内容', name: 'body', index: 'body', width: 80 },
+			{ label: '时间', name: 'createDate', index: 'create_date', width: 80 }
         ],
 		viewrecords: true,
     height: 500,         rowNum: 10, 		rowList : [30,50,100],

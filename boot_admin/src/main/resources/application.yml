@@ -23,7 +23,7 @@ spring:
     active: test
 #mybatis
 mybatis-plus:
-  mapper-locations: classpath:/mapper/*.xml
+  mapper-locations: classpath*:/mapper/**/*.xml
   typeAliasesPackage: com.tg.admin.modules.*.entity
   global-config:
     db-config:

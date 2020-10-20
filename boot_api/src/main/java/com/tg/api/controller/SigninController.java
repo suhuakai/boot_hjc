@@ -23,7 +23,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("api/signin")
-public class SigninController {
+public class SigninController extends BaseController {
     @Autowired
     private SigninService signinService;
 
@@ -33,6 +33,7 @@ public class SigninController {
     @RequestMapping("/list")
     public R list(@RequestParam Map<String, Object> params){
         params.put("signType",params.get("signType"));
+        params.put("userId",getUserId());
         PageUtils page = signinService.queryPage(params);
         return R.ok(page);
     }

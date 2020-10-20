@@ -15,7 +15,7 @@
         </div>
         <div class="col-md-1">
             <select type="text" class="form-control" v-model="user.userVipId" @keyup.enter="query" placeholder="会员等级">
-                <option value="-1" >全部</option>
+                <option value="-1">全部</option>
                 <option value="1">一星矿工</option>
                 <option value="2">二星矿工</option>
                 <option value="3">三星店家</option>
@@ -23,14 +23,16 @@
                 <option value="5">五星城主</option>
             </select>
         </div>
+        <div class="grid-btn">
             <a class="btn btn-default" @click="query">查询</a>
             <#if shiro.hasPermission("business:user:activate")>
-            <a class="btn btn-primary" @click="activate">&nbsp;激活</a>
+            <a class="btn btn-primary" @click="activate">&nbsp;激活账号</a>
         </#if>
         </div>
-        <table id="jqGrid"></table>
-        <div id="jqGridPager"></div>
     </div>
+    <table id="jqGrid"></table>
+    <div id="jqGridPager"></div>
+</div>
 </div>
 
 

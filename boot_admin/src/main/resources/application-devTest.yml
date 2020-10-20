@@ -4,7 +4,7 @@ spring:
       url: jdbc:mysql://121.36.1.36:3306/tg_test?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
       username: root
       password: Wu123456789
-      driver-class-name: com.mysql.jdbc.Driver
+      driver-class-name: com.mysql.cj.jdbc.Driver
       initial-size: 10
       max-active: 50
       min-idle: 10

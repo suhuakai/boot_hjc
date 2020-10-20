@@ -12,10 +12,10 @@ $(function () {
             {
                 label: '钱包类型', name: 'walletTypeId', index: 'wallet_type_id', width: 80, formatter: function (value) {
                     if (value == 1) {
-                        return '<span class="label label-primary" style="background-color:#dcb989 ">余额</span>';
+                        return '<span class="label label-primary" style="background-color:#dcb989">余额</span>';
                     }
                     if (value == 2) {
-                        return '<span class="label label-info" style="background-color:#bacad9 ">平台币</span>';
+                        return '<span class="label label-info" style="background-color:#bacad9">平台币</span>';
                     }
                     if (value == 3) {
                         return '<span class="label label-success" style="background-color:#d8bf7c">银矿池</span>';
@@ -145,6 +145,7 @@ var vm = new Vue({
 			var page = $("#jqGrid").jqGrid('getGridParam','page');
 			$("#jqGrid").jqGrid('setGridParam',{
                 postData: {
+                    "userId": vm.wallet.userId,
                     "walletTypeId": vm.wallet.walletTypeId
                 },
                 page:page

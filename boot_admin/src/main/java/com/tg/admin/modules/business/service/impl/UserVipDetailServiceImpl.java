@@ -19,6 +19,9 @@ public class UserVipDetailServiceImpl extends ServiceImpl<UserVipDetailDao, User
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
         QueryWrapper<UserVipDetailEntity> qw = new QueryWrapper<>();
+        if (params.containsKey("userId") &&  !"".equals(params.get("userId"))) {
+            qw.eq("user_id", params.get("userId"));
+        }
         if (params.containsKey("vipId") && !"-1".equals(params.get("vipId")) && !"".equals(params.get("vipId"))) {
             qw.eq("vip_id", params.get("vipId"));
         }

@@ -6,14 +6,14 @@ $(function () {
 			{ label: 'id', name: 'id', index: 'id', width: 50, key: true },
 			{ label: '数量', name: 'number', index: 'number', width: 80 }, 			
 			{ label: '用户ID', name: 'userId', index: 'user_id', width: 80 },
-			{ label: '创建时间', name: 'date', index: 'date', width: 80 },
+            { label: '说明', name: 'content', index: 'content', width: 80 },
             {
                 label: '钱包类型', name: 'walletTypeId', index: 'wallet_type_id', width: 80, formatter: function (value) {
                     if (value == 1) {
                         return '<span class="label label-primary" style="background-color:#dcb989 ">余额</span>';
                     }
                     if (value == 2) {
-                        return '<span class="label label-info" style="background-color:#bacad9 ">平台币</span>';
+                        return '<span class="label label-info" style="background-color:#bacad9 ">金券</span>';
                     }
                     if (value == 3) {
                         return '<span class="label label-success" style="background-color:#d8bf7c">银矿池</span>';
@@ -22,7 +22,7 @@ $(function () {
                         return '<span class="label label-danger" style="background-color:#7c9ff8">金矿池</span>';
                     }
                     if (value == 5) {
-                        return '<span class="label label-danger" style="background-color:#29ccd3">贡献池</span>';
+                        return '<span class="label label-danger" style="background-color:#29ccd3">算力池</span>';
                     }
                     if (value == 6) {
                         return '<span class="label label-danger" style="background-color:#29ccd3">期股权</span>';
@@ -49,6 +49,18 @@ $(function () {
                     if (value == "upRecommend") {
                         return '<span class="label label-info" style="background-color:#bacad9 ">升级推荐</span>';
                     }
+                    if (value == "yes") {
+                        return '<span class="label label-info" style="background-color:#bacad9 ">非收益</span>';
+                    }
+                    if (value == "watch") {
+                        return '<span class="label label-info" style="background-color:#bacad9 ">预约广告收益</span>';
+                    }
+                    if (value == "watchRecommend") {
+                        return '<span class="label label-info" style="background-color:#bacad9 ">观看推荐收益</span>';
+                    }
+                    if (value == "transfer") {
+                        return '<span class="label label-info" style="background-color:#bacad9 ">划转</span>';
+                    }
                 }
             },
             {
@@ -61,7 +73,8 @@ $(function () {
                     }
                 }
             },
-			{ label: '来源用户id', name: 'upUserId', index: 'up_user_id', width: 80 }			
+			{ label: '来源用户id', name: 'upUserId', index: 'up_user_id', width: 80 },
+            { label: '创建时间', name: 'date', index: 'date', width: 80 }
         ],
 		viewrecords: true,
     height: 500,         rowNum: 10, 		rowList : [30,50,100],
@@ -176,6 +189,7 @@ var vm = new Vue({
 			var page = $("#jqGrid").jqGrid('getGridParam','page');
 			$("#jqGrid").jqGrid('setGridParam',{
                 postData: {
+                    "userId": vm.userEarnings.userId,
                     "walletTypeId": vm.userEarnings.walletTypeId,
                     "type": vm.userEarnings.type,
                     "settleStatus": vm.userEarnings.settleStatus

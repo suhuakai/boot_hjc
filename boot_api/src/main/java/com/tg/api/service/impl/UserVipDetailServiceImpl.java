@@ -1,5 +1,6 @@
 package com.tg.api.service.impl;
 
+import com.tg.api.common.exception.RRException;
 import com.tg.api.entity.*;
 import com.tg.api.service.*;
 import org.apache.commons.collections.CollectionUtils;
@@ -76,6 +77,12 @@ public class UserVipDetailServiceImpl extends ServiceImpl<UserVipDetailDao, User
         VipGradeTypeEntity vipGradeTypeEntity = vipGradeTypeService.getById(vipId);
         UserEntity user = userService.getById(userId);
 
+        if (user.getUserVipId().compareTo(vipId) > 0) {
+            throw new RRException("你当前等级高于购买等级！");
+        }
+        user.setUserVipId(vipId);
+        userService.updateById(user);
+
         //vip用户明细
         UserVipDetailEntity userVipDetailEntity = new UserVipDetailEntity();
         userVipDetailEntity.setUserId(userId);
@@ -83,32 +90,38 @@ public class UserVipDetailServiceImpl extends ServiceImpl<UserVipDetailDao, User
         userVipDetailEntity.setDate(LocalDateTime.now());
         userVipDetailEntity.setVipId(vipId);
         userVipDetailEntity.setType("buy");
-        userVipDetailEntity.setSettleStatus("no");
+        userVipDetailEntity.setSettleStatus("yes");
         userVipDetailEntity.setOriginalVpiId(originVipId);
         baseMapper.insert(userVipDetailEntity);
 
         //余额减少
-        WalletEntity walletEntity = walletService.getOne(new QueryWrapper<WalletEntity>().eq("user_id", userId).eq("wallet_type_id", 1));
-        if (walletEntity != null) {
-            walletEntity.setBalance(walletEntity.getBalance().subtract(vipGradeTypeEntity.getWorth()));
-            walletService.updateById(walletEntity);
+        WalletEntity walletEntity = walletService.getOne(new QueryWrapper<WalletEntity>().eq("user_id", userId).eq("wallet_type_id", 2));
+        WalletEntity walletLock = walletService.getLock(walletEntity.getId());
+        if (walletLock.getBalance().compareTo(vipGradeTypeEntity.getWorth()) < 0) {
+            throw new RRException("金券不足");
         }
+        walletLock.setBalance(vipGradeTypeEntity.getWorth());
+        walletService.reduceWalletBalance(walletLock);
 
         //上级用户+15% 定时任务做
         UserEntity userEntity = userService.getById(user.getUpUserId());
-       /*  walletEntity = walletService.getOne(new QueryWrapper<WalletEntity>().eq("user_id", userEntity.getId()).eq("wallet_type_id", 1));
-        walletEntity.setBalance(walletEntity.getBalance().add(vipGradeTypeEntity.getWorth().multiply(new BigDecimal("0.15"))));
-        walletService.updateById(walletEntity);*/
+        if (userEntity != null) {
+            WalletEntity walletUp = walletService.getOne(new QueryWrapper<WalletEntity>().eq("user_id", userEntity.getId()).eq("wallet_type_id", 1));
+            walletUp = walletService.getLock(walletUp.getId());
+            walletUp.setBalance(walletUp.getBalance().add(vipGradeTypeEntity.getWorth().multiply(new BigDecimal("0.15"))));
+            walletService.updateById(walletUp);
+        }
 
         // 推荐奖励
         UserEarningsEntity earTj = new UserEarningsEntity();
         earTj.setDate(LocalDateTime.now());
         earTj.setUserId(userEntity.getId());
-        earTj.setNumber(vipGradeTypeEntity.getWorth(). multiply(new BigDecimal("0.15")));
+        earTj.setNumber(vipGradeTypeEntity.getWorth().multiply(new BigDecimal("0.15")));
         earTj.setSettleStatus("no");
         earTj.setType("upRecommend");
         earTj.setUpUserId(userId);  //下级
         earTj.setWalletTypeId(1);  //余额
+        earTj.setSettleStatus("yes");
         userEarningsService.save(earTj);
 
         //

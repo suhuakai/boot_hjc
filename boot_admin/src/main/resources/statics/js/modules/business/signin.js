@@ -156,6 +156,7 @@ var vm = new Vue({
 			var page = $("#jqGrid").jqGrid('getGridParam','page');
 			$("#jqGrid").jqGrid('setGridParam',{
                 postData: {
+                    "userId": vm.signin.userId,
                     "walletTypeId": vm.signin.walletTypeId,
                     "signType": vm.signin.signType
                 },

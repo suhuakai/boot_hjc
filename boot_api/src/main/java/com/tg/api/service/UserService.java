@@ -18,6 +18,8 @@ import java.util.Map;
  */
 public interface UserService extends IService<UserEntity> {
 
+    void activation(Integer id,Integer userId);
+
     PageUtils queryPage(Map<String, Object> params);
 
     UserEntity findUserInfoByParameter(String id, String password);

@@ -108,4 +108,7 @@ public class WithdrawEntity implements Serializable {
 	@TableField(exist = false)
 	private String userTypeName;
 
+	@TableField(exist = false)
+	private String dealPassword;
+
 }

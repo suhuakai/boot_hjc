@@ -51,7 +51,13 @@ public class UserEarningsEntity implements Serializable {
 	 */
 	private String settleStatus;
 
+	private String numberZifu;
+
+	private String content;
+
 	private Integer upUserId;
+
+	private String status;
 
 	@TableField(exist = false)
 	private String statusName;

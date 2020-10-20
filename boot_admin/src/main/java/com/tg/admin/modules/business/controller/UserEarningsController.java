@@ -53,35 +53,6 @@ public class UserEarningsController {
 
     }
 
-    /**
-     * 保存
-     */
-    @RequestMapping("/save")
-    @RequiresPermissions("business:userearnings:save")
-    public R save(@RequestBody UserEarningsEntity userEarnings){
-        userEarningsService.save(userEarnings);
-        return R.ok();
-    }
 
-    /**
-     * 修改
-     */
-    @RequestMapping("/update")
-    @RequiresPermissions("business:userearnings:update")
-    public R update(@RequestBody UserEarningsEntity userEarnings){
-        ValidatorUtils.validateEntity(userEarnings);
-        userEarningsService.updateById(userEarnings);
-        return R.ok();
-    }
-
-    /**
-     * 删除
-     */
-    @RequestMapping("/delete")
-    @RequiresPermissions("business:userearnings:delete")
-    public R delete(@RequestBody Integer[] ids){
-        userEarningsService.removeByIds(Arrays.asList(ids));
-        return R.ok();
-    }
 
 }

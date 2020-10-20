@@ -5,9 +5,7 @@ $(function () {
         colModel: [			
 			{ label: 'id', name: 'id', index: 'id', width: 50, key: true },
 			{ label: '用户id', name: 'userId', index: 'user_id', width: 80 }, 			
-			{ label: '消耗数量', name: 'number', index: 'number', width: 80 }, 			
-			{ label: '消耗福豆', name: 'consumeBlessingBean', index: 'consume_blessing_bean', width: 80 }, 			
-			{ label: '消耗余额', name: 'consumeBalance', index: 'consume_balance', width: 80 }, 			
+			{ label: '消耗数量', name: 'number', index: 'number', width: 80 },
 			{ label: '创建时间', name: 'date', index: 'date', width: 80 },
             {
                 label: '用户等级', name: 'vipId', index: 'vip_id', width: 80, formatter: function (value) {
@@ -184,6 +182,7 @@ var vm = new Vue({
 			var page = $("#jqGrid").jqGrid('getGridParam','page');
 			$("#jqGrid").jqGrid('setGridParam',{
                 postData: {
+                    "userId": vm.userVipDetail.userId,
                     "vipId": vm.userVipDetail.vipId,
                     "type": vm.userVipDetail.type,
                     "settleStatus":vm.userVipDetail.settleStatus

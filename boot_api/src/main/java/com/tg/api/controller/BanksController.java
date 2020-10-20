@@ -13,10 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 
-
 /**
- * 
- *
  * @author Amy
  * @email 411382846@qq.com
  * @date 2020-09-29 13:21:15
@@ -31,18 +28,15 @@ public class BanksController {
      * 列表
      */
     @RequestMapping("/list")
-    public R list(@RequestParam Map<String, Object> params){
+    public R list(@RequestParam Map<String, Object> params) {
         PageUtils page = banksService.queryPage(params);
         return R.ok(page);
     }
 
     @RequestMapping("/info")
-    public R info(){
-        BanksEntity banksEntity = banksService.getOne(new QueryWrapper<BanksEntity>().eq("status","yes"));
+    public R info(@RequestParam String type) {
+        BanksEntity banksEntity = banksService.getOne(new QueryWrapper<BanksEntity>().eq("status", "yes").eq("type", type));
         return R.ok(banksEntity);
     }
-
-
-
 
 }

@@ -32,13 +32,15 @@ import com.tg.api.common.utils.Query;
 import com.tg.api.dao.UserDao;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
+
 
 @Service("userService")
 public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements UserService {
     @Autowired
     WalletService walletService;
 
-    @Autowired
+    @Resource
     WalletDao walletDao;
 
     @Autowired
@@ -55,10 +57,72 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
 
     @Autowired
     AddressPrestoreService addressPrestoreService;
-    @Autowired
-    UserVipDetailDao userVipDetailDao;
-    @Autowired
+
+    @Resource
     VipGradeTypeDao vipGradeTypeDao;
+
+    @Autowired
+    DictionariesService dictionariesService;
+
+
+    @Override
+    @Transactional
+    public void activation(Integer id,Integer userId) {
+        DictionariesEntity dic = dictionariesService.getById(1);
+        UserEntity userUp = this.getById(id);
+
+        WalletEntity walletEntity = walletService.getOne(new QueryWrapper<WalletEntity>().eq("user_id", userId).eq("wallet_type_id", 2));
+        WalletEntity walletLock = walletService.getLock(walletEntity.getId());
+
+        if (walletLock.getBalance().compareTo(dic.getAgencyNumberFee()) < 0) {
+            throw new RRException("金卷余额不足");
+        }
+        walletLock.setBalance(dic.getAgencyNumberFee());
+        walletService.reduceWalletBalance(walletLock);
+
+        userUp.setIsActivate("yes");
+
+        UserEarningsEntity userEarningsEntity = new UserEarningsEntity();
+        userEarningsEntity.setNumber(new BigDecimal("3"));
+        userEarningsEntity.setUserId(userId);
+        userEarningsEntity.setWalletTypeId(2);
+        userEarningsEntity.setStatus("operation");
+        userEarningsEntity.setType("yes");
+        userEarningsEntity.setSettleStatus("yes");
+        userEarningsEntity.setNumberZifu("-" + userEarningsEntity.getNumber());
+        userEarningsEntity.setContent("激活下级uid:"+userUp.getId()+"消耗金卷" + userEarningsEntity.getNumberZifu());
+        userEarningsEntity.setDate(LocalDateTime.now());
+        userEarningsService.save(userEarningsEntity);
+
+        this.updateById(userUp);
+
+        // 注册收益
+        UserEarningsEntity ear = new UserEarningsEntity();
+        ear.setDate(LocalDateTime.now());
+        ear.setUserId(id);
+        ear.setNumber(new BigDecimal("50"));
+        ear.setSettleStatus("no");
+        ear.setType("register");
+        ear.setNumberZifu("+" + ear.getNumber());
+        ear.setContent("注册获得奖励银矿池：" + ear.getNumberZifu());
+        ear.setWalletTypeId(3);
+        userEarningsService.save(ear);
+
+        // 推荐奖励
+        UserEarningsEntity earTj = new UserEarningsEntity();
+        earTj.setDate(LocalDateTime.now());
+        earTj.setUserId(userId);
+        earTj.setNumber(new BigDecimal("25"));
+        earTj.setSettleStatus("no");
+        earTj.setType("recommend");
+        earTj.setUpUserId(userId);  //下级
+        earTj.setNumberZifu("+" + earTj.getNumber());
+        earTj.setContent("邀请好友注册获得奖励银矿池：" + earTj.getNumberZifu());
+        earTj.setWalletTypeId(3);
+
+        userEarningsService.save(earTj);
+
+    }
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
@@ -107,12 +171,12 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
             if (f.getId() == 1 || f.getId() == 2) {  //钱包或者余额
                 List<CoinEntity> coinEntityList = coinService.list(new QueryWrapper<CoinEntity>().eq("wallet_type_id", f.getId()));
                 coinEntityList.forEach(c -> {
-                    AddressPrestoreEntity add = addressPrestoreService.getAddressPrestore(c.getId());
-                    if (add == null) {
-                        throw new RRException("钱包初始失败！");
-                    }
+//                    AddressPrestoreEntity add = addressPrestoreService.getAddressPrestore(c.getId());
+//                    if (add == null) {
+//                        throw new RRException("钱包初始失败！");
+//                    }
                     WalletEntity walletEntity = new WalletEntity();
-                    walletEntity.setAddress(add.getAddress());
+                    walletEntity.setAddress("abc");
                     walletEntity.setUserId(user.getId());
                     walletEntity.setBalance(BigDecimal.ZERO);
                     walletEntity.setCoinName(c.getName());
@@ -120,9 +184,9 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
                     walletEntity.setWalletTypeId(f.getId());
                     walletService.save(walletEntity);
 
-                    add.setUserId(user.getId());
-                    add.setStatus("no");
-                    addressPrestoreService.updateById(add);
+//                    add.setUserId(user.getId());
+//                    add.setStatus("no");
+//                    addressPrestoreService.updateById(add);
                 });
             } else {
                 WalletEntity walletEntity = new WalletEntity();
@@ -134,41 +198,6 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
         });
         this.updateById(userUp);
         this.save(user);
-        // 注册收益
-        UserEarningsEntity ear = new UserEarningsEntity();
-        ear.setDate(LocalDateTime.now());
-        ear.setUserId(user.getId());
-        ear.setNumber(new BigDecimal("50"));
-        ear.setSettleStatus("no");
-        ear.setType("register");
-
-        BalanceEntity balanceEntity = balanceService.getById(1);
-        if (balanceEntity.getBalanceMoney().compareTo(new BigDecimal("50")) < 0) {
-            ear.setWalletTypeId(4);
-            balanceEntity.setBalanceMoney(balanceEntity.getBalanceMoney().subtract(new BigDecimal(50)));
-            balanceService.updateById(balanceEntity);
-        } else {
-            ear.setWalletTypeId(3);
-        }
-        userEarningsService.save(ear);
-
-        // 推荐奖励
-        UserEarningsEntity earTj = new UserEarningsEntity();
-        earTj.setDate(LocalDateTime.now());
-        earTj.setUserId(userUp.getId());
-        earTj.setNumber(new BigDecimal("25"));
-        earTj.setSettleStatus("no");
-        earTj.setType("recommend");
-        earTj.setUpUserId(user.getId());  //下级
-
-        if (balanceEntity.getBalanceMoney().compareTo(new BigDecimal("25")) < 0) {
-            earTj.setWalletTypeId(4);
-            balanceEntity.setBalanceMoney(balanceEntity.getBalanceMoney().subtract(new BigDecimal(25)));
-            balanceService.updateById(balanceEntity);
-        } else {
-            earTj.setWalletTypeId(3);
-        }
-        userEarningsService.save(earTj);
         return userVo;
     }
 
@@ -225,29 +254,32 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
         UserVo user = new UserVo();
         BeanUtils.copyProperties(userEntity, user);
 
-        List<WalletEntityVo> walletEntityVoList = walletDao.getByUserId(userId);
+        List<WalletEntity> walletEntityVoList = walletDao.selectList(new QueryWrapper<WalletEntity>().eq("user_id", userId));
+        walletEntityVoList.forEach(f -> {
+            f.setWalletTypeName(walletTypeService.getById(f.getWalletTypeId()).getName());
+        });
         rtMap.put("walletList", walletEntityVoList);  //资产明细
 
         WalletEntity walletEntity = walletService.getOne(new QueryWrapper<WalletEntity>()
                 .eq("user_id", userId).eq("wallet_type_id", 2));
         user.setAddress(walletEntity == null ? "" : walletEntity.getAddress());  //地址
 
-        UserVipDetailEntity userVipDetailEntity = userVipDetailDao.selectById(userEntity.getUserVipId());
 
-        if (userVipDetailEntity == null) {
+        VipGradeTypeEntity vipGradeTypeEntity = vipGradeTypeDao.selectById(user.getUserVipId());
+        if (vipGradeTypeEntity == null) {
             user.setVipLevel("一星矿工");
         } else {
-            VipGradeTypeEntity vipGradeTypeEntity = vipGradeTypeDao.selectById(userVipDetailEntity.getVipId());
             user.setVipLevel(vipGradeTypeEntity.getName());
         }
 
-        List<UserEntity> userEntityList = baseMapper.selectList(new QueryWrapper<UserEntity>().eq("up_user_id", userId));  //一代直推
-        Integer recomment = 0;
-        for (UserEntity ue : userEntityList) {
-            recomment += ue.getRecommendCount();
-        }
-        user.setRecommendCount(userEntity.getRecommendCount() + recomment);  //推荐人数
-        user.setEarnings(new BigDecimal(userEntity.getRecommendCount() + recomment).multiply(new BigDecimal(25)));  //收益
+        user.setRecommendCount(this.count(new QueryWrapper<UserEntity>().gt("grade", user.getGrade()).like("grade_url", user.getGradeUrl())));  //推荐人数
+
+        QueryWrapper<UserEarningsEntity> queryWrapper = new QueryWrapper<>();
+        queryWrapper.in("type", "recommend", "upRecommend");
+        queryWrapper.select("COALESCE(sum(number),0.00) as recharge");
+        queryWrapper.eq("user_id", userId);
+        Map map2 = userEarningsService.getMap(queryWrapper);
+        user.setEarnings(new BigDecimal(map2.get("recharge") + ""));  //收益
         walletEntity = walletService.getOne(new QueryWrapper<WalletEntity>()
                 .eq("user_id", userId).eq("wallet_type_id", 1));
         user.setEarnMoney(walletEntity == null ? new BigDecimal(0) : walletEntity.getBalance());    //余额
@@ -264,35 +296,33 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
      */
     @Override
     public PageUtils myTeam(Map<String, Object> map) {
-        List<UserEntity> userEntityList = baseMapper.selectList(new QueryWrapper<UserEntity>().eq("up_user_id", map.get("userId")));  //一代直推
-        List<Integer> upUserIds = new ArrayList<>();
-        for (UserEntity ue : userEntityList) {
-            upUserIds.add(ue.getId());
-        }
-        map.put("id", upUserIds);
+        UserEntity user = this.getById(map.get("userId") + "");
         IPage<UserEntity> page;
         if ("1".equals(map.get("grade").toString())) {
-            page = this.page(
-                    new Query<UserEntity>().getPage(map),
-                    new QueryWrapper<>()
+            page = this.page(new Query<UserEntity>().getPage(map),
+                    new QueryWrapper<UserEntity>().eq("up_user_id", user.getId())
             );
-            for (UserEntity userEntity : page.getRecords()) {
-                userEntity.setEarningsOne(new BigDecimal(25));
-            }
+            page.getRecords().forEach(f -> {
+                QueryWrapper<UserEarningsEntity> queryWrapper = new QueryWrapper<>();
+                queryWrapper.eq("user_id", user.getId());
+                queryWrapper.eq("up_user_id", f.getId());
+                queryWrapper.select("COALESCE(sum(number),0.00) as recharge");
+                Map map2 = userEarningsService.getMap(queryWrapper);
+                f.setEarningsOne(new BigDecimal(map2.get("recharge") + ""));  //收益
+            });
         } else {
-            List<UserEntity> userEntityList2 = baseMapper.selectList(new QueryWrapper<UserEntity>().in("up_user_id", upUserIds));  //二代推荐
-            upUserIds = new ArrayList<>();
-            for (UserEntity ue : userEntityList2) {
-                upUserIds.add(ue.getId());
-            }
-            map.put("id", upUserIds);
             page = this.page(
                     new Query<UserEntity>().getPage(map),
-                    new QueryWrapper<>()
+                    new QueryWrapper<UserEntity>().eq("grade", user.getGrade() + 2).like("grade_url", user.getGradeUrl())
             );
-            for (UserEntity userEntity : page.getRecords()) {
-                userEntity.setEarningsTwo(new BigDecimal(25));
-            }
+            page.getRecords().forEach(f -> {
+                QueryWrapper<UserEarningsEntity> queryWrapper = new QueryWrapper<>();
+                queryWrapper.eq("user_id", user.getId());
+                queryWrapper.eq("up_user_id", f.getId());
+                queryWrapper.select("COALESCE(sum(number),0.00) as recharge");
+                Map map2 = userEarningsService.getMap(queryWrapper);
+                f.setEarningsOne(new BigDecimal(map2.get("recharge") + ""));  //收益
+            });
         }
         return new PageUtils(page);
     }

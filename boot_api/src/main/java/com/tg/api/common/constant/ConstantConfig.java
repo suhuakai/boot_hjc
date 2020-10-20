@@ -34,10 +34,10 @@ public class ConstantConfig {
      */
     public enum WalletType {
         balance(1,"余额"),
-        platformCoin(2,"平台币"),
+        platformCoin(2,"金券"),
         goldPool(3, "金矿池"),
         silverPool(4, "银矿池"),
-        contributionPool(5, "贡献池"),
+        contributionPool(5, "算力池"),
         optionShare(6, "期股权");
 
         ;

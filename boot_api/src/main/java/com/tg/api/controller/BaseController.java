@@ -9,6 +9,7 @@ import com.tg.api.common.utils.BASE64DecodedMultipartFile;
 import com.tg.api.common.utils.Base64Util;
 import com.tg.api.common.utils.R;
 import com.tg.api.common.validator.Assert;
+import com.tg.api.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -52,7 +53,8 @@ public class BaseController {
             throw new RRException("登入过期", ConstantCache.TOKENEXPIRATION);
         }
         Object userId = redisConfigService.get(token);
-        return (Integer) userId;
+        System.out.println(userId);
+        return Integer.valueOf(userId+"");
     }
 
     @RequestMapping(value = "/img")
@@ -72,25 +74,25 @@ public class BaseController {
     }
 
 
-
     @RequestMapping(value = "/uploadImg", method = RequestMethod.POST)
     public R uploadImg(@RequestParam(value = "file") MultipartFile file) throws Exception {
         String filepath = file.getOriginalFilename();
         String fileName = filepath.substring(filepath.lastIndexOf("/") + 1, filepath.lastIndexOf("."));
-        String fileType = filepath.substring(filepath.lastIndexOf(".")+1, filepath.length());
+        String fileType = filepath.substring(filepath.lastIndexOf(".") + 1, filepath.length());
 
         FileInputStream inputStream = (FileInputStream) file.getInputStream();
 
         //获取当前时间
         String now = new SimpleDateFormat("yy-MM-dd HH:mm:ss").format(new Date());
-        fileName = fileName+"("+now+")"+"."+fileType;
+        fileName = fileName + "(" + now + ")" + "." + fileType;
         //文件位置
-        String fileId = Qiniuyun.upload(inputStream, fileName);
+        String fileId = Qiniuyun.upInput(fileName, inputStream);
         return R.ok(fileId);
     }
 
     /**
      * base64
+     *
      * @param file
      * @return
      * @throws Exception
@@ -99,7 +101,7 @@ public class BaseController {
     public R upload(String file) throws Exception {
         String[] baseStrs = file.split(",");
         BASE64Decoder decoder = new BASE64Decoder();
-        byte[] b ;
+        byte[] b;
         b = decoder.decodeBuffer(baseStrs[1]);
 
         for (int i = 0; i < b.length; ++i) {
@@ -111,15 +113,15 @@ public class BaseController {
 
         String filepath = multipartFile.getOriginalFilename();
         String fileName = filepath.substring(filepath.lastIndexOf("/") + 1, filepath.lastIndexOf("."));
-        String fileType = filepath.substring(filepath.lastIndexOf(".")+1, filepath.length());
+        String fileType = filepath.substring(filepath.lastIndexOf(".") + 1, filepath.length());
 
-        InputStream inputStream =  multipartFile.getInputStream();
+        InputStream inputStream = multipartFile.getInputStream();
 
         //获取当前时间
         String now = new SimpleDateFormat("yy-MM-dd HH:mm:ss").format(new Date());
-        fileName = fileName+"("+now+")"+"."+fileType;
+        fileName = fileName + "(" + now + ")" + "." + fileType;
         //文件位置
-        String fileId = Qiniuyun.upload(inputStream, fileName);
+        String fileId = Qiniuyun.upInput(fileName, inputStream);
         return R.ok((Object) fileId);
     }
 
@@ -129,7 +131,7 @@ public class BaseController {
         try {
             InputStream inputStream = file.getInputStream();
             String key = UUID.randomUUID().toString() + fileNameNow;
-          //  Qiniuyun.(key, fileName);
+            //  Qiniuyun.(key, fileName);
             return key;
         } catch (Exception e) {
             e.printStackTrace();

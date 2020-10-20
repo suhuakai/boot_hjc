@@ -21,7 +21,7 @@ public class UserEarningsEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * 
+	 *
 	 */
 	@TableId
 	private Integer id;
@@ -42,16 +42,20 @@ public class UserEarningsEntity implements Serializable {
 	 */
 	private Integer walletTypeId;
 	/**
-	 * 注册  注册推荐 签到 关注 浏览 升级推荐
+	 * 注册  推荐收益
 	 */
 	private String type;
 	/**
 	 * 未结算，已结算
 	 */
 	private String settleStatus;
-	/**
-	 * 来源用户id
-	 */
+
+	private String numberZifu;
+
+	private String content;
+
 	private Integer upUserId;
+
+	private String status;
 
 }

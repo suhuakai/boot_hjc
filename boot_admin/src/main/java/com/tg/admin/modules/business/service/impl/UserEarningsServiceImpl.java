@@ -25,6 +25,9 @@ public class UserEarningsServiceImpl extends ServiceImpl<UserEarningsDao, UserEa
         if (params.containsKey("type") && !"-1".equals(params.get("type")) && !"".equals(params.get("type"))) {
             qw.eq("type", params.get("type"));
         }
+        if (params.containsKey("userId") &&  !"".equals(params.get("userId"))) {
+            qw.eq("user_id", params.get("userId"));
+        }
         if (params.containsKey("settleStatus") && !"-1".equals(params.get("settleStatus")) && !"".equals(params.get("settleStatus"))) {
             qw.eq("settle_status", params.get("settleStatus"));
         }

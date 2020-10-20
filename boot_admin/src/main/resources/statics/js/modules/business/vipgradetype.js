@@ -4,14 +4,8 @@ $(function () {
         datatype: "json",
         colModel: [			
 			{ label: 'id', name: 'id', index: 'id', width: 50, key: true },
-			{ label: '等级名称', name: 'name', index: 'name', width: 80 }, 			
-			{ label: '一代推荐奖励', name: 'recommendOneRate', index: 'recommend_one_rate', width: 80 }, 			
-			{ label: '签到奖励', name: 'sign', index: 'sign', width: 80 }, 			
-			{ label: '价值', name: 'worth', index: 'worth', width: 80 }, 			
-			{ label: '消耗福豆', name: 'consumeBlessingBean', index: 'consume_blessing_bean', width: 80 }, 			
-			{ label: '消耗余额', name: 'consumeBalance', index: 'consume_balance', width: 80 }, 			
-			{ label: '二代推荐奖励', name: 'recommendTwoRate', index: 'recommend_two_rate', width: 80 }, 			
-			{ label: '签到次数', name: 'signDay', index: 'sign_day', width: 80 }			
+			{ label: '等级名称', name: 'name', index: 'name', width: 80 },
+			{ label: '价格', name: 'worth', index: 'worth', width: 80 }
         ],
 		viewrecords: true,
     height: 500,         rowNum: 10, 		rowList : [30,50,100],

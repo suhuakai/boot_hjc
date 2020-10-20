@@ -7,6 +7,9 @@
 <body>
 <div id="rrapp" v-cloak>
     <div v-show="showList">
+        <div class="form-group col-sm-1">
+            <input type="text" class="form-control" v-model="wallet.userId" @keyup.enter="query" placeholder="uid">
+        </div>
         <div class="col-md-1">
             <select type="text" class="form-control" v-model="wallet.walletTypeId" @keyup.enter="query" placeholder="钱包类型">
                 <option value="-1" >全部</option>

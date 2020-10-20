@@ -3,12 +3,412 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e9ae817-685c-46eb-9f7a-88093e9b8584" name="Default Changelist" comment="" />
+    <list default="true" id="4e9ae817-685c-46eb-9f7a-88093e9b8584" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__cn_afterturn_easypoi_annotation_3_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__cn_afterturn_easypoi_base_3_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__cn_afterturn_easypoi_web_3_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_druid_1_1_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_druid_spring_boot_starter_1_1_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_70.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_baomidou_mybatis_plus_3_0_7_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_baomidou_mybatis_plus_annotation_3_0_7_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_baomidou_mybatis_plus_boot_starter_3_0_7_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_baomidou_mybatis_plus_core_3_0_7_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_baomidou_mybatis_plus_extension_3_0_7_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_axet_kaptcha_0_0_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_jsqlparser_jsqlparser_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_virtuald_curvesapi_1_04.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_2_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_16_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_18_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_2_6_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_4_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_jhlabs_filters_2_0_235.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_lambdaworks_scrypt_1_4_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_madgag_spongycastle_core_1_51_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_qiniu_happy_dns_java_0_1_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_qiniu_qiniu_java_sdk_6_1_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okhttp3_okhttp_3_14_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okhttp_okhttp_2_7_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okio_okio_1_17_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_zaxxer_HikariCP_3_4_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_beanutils_commons_beanutils_1_9_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_cli_commons_cli_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_14.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_collections_commons_collections_3_2_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_lettuce_lettuce_core_5_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_buffer_4_1_49_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_4_1_49_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_common_4_1_49_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_4_1_49_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_4_1_49_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_4_1_49_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_reactor_core_3_3_5_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_activation_jakarta_activation_api_1_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_annotation_jakarta_annotation_api_1_3_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_validation_jakarta_validation_api_2_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_xml_bind_jakarta_xml_bind_api_2_3_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_validation_validation_api_2_0_1_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_15.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_10_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_10_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_jcip_jcip_annotations_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_accessors_smart_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_json_smart_2_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_collections4_4_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_fluent_hc_4_5_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_cache_4_5_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_ab_4_2_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_nio_4_4_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpmime_4_5_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_13_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_to_slf4j_2_13_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_3_15.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_3_15.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_schemas_3_15.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_cache_1_4_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_config_core_1_4_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_config_ogdl_1_4_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_core_1_4_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_crypto_cipher_1_4_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_crypto_core_1_4_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_crypto_hash_1_4_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_event_1_4_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_lang_1_4_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_spring_1_4_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_web_1_4_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_35.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_35.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_xmlbeans_xmlbeans_2_6_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_9_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_3_16_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_bitcoinj_bitcoinj_core_0_14_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_bitcoinj_orchid_1_2_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_freemarker_freemarker_2_3_30.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jakarta_el_3_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_validator_hibernate_validator_6_1_5_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_4_1_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_org_json_chargebee_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_6_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_6_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_6_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_6_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_6_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_6_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_3_3_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_junit_jupiter_3_3_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_4_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_1_3_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_2_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_5_0_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_reactivestreams_reactive_streams_1_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_5_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_30.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_30.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_redis_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_freemarker_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_keyvalue_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_redis_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_2_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_2_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_2_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_5_2_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_2_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_2_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_2_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_2_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_oxm_5_2_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_2_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_2_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_2_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_2_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_xmlunit_xmlunit_core_2_7_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_26.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__stax_stax_api_1_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_admin/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_admin/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_admin/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_admin/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_admin/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_admin/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/service/UserEarningsDetailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/api.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/controller/BanksUserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/dao/BanksUserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/dao/DictionariesDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/entity/BanksUserEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/entity/DictionariesEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/service/BanksUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/service/DictionariesService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/service/impl/BanksUserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/service/impl/DictionariesServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/task/SonTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/task/Task.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/application-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/application-devTest.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/application-test.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/banner.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/BootApiApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/bitcoin/BitWallet.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/bitcoin/BitcoinWalletUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/bitcoin/Constants.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/bitcoin/MnemonicForm.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/bitcoin/PrivateKeyForm.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/config/CorsConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/config/JacksonConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/config/KaptchaConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/config/MybatisPlusConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/config/ScheduleConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/config/UploadConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/constant/ConstantCache.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/constant/ConstantCode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/constant/ConstantConfig$WalletType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/constant/ConstantConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/constant/MineParameter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/exception/RRException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/exception/RRExceptionHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/note/entity/NoteEntity.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/note/utils/HttpClient4Utils$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/note/utils/HttpClient4Utils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/note/utils/NoteUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/note/utils/SignatureUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/qiniuyun/Qiniuyun.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/redis/RedisConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/redis/RedisConfigService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/redis/RedisObjectSerializer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/utils/Base64Util.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/utils/IPUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/utils/LocalAssert.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/utils/LocalStringUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/utils/MD5My.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/utils/Md5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/utils/PageUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/utils/Query.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/utils/R.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/utils/RegularExpressionUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/utils/SendSdkUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/utils/TreeUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/validator/Assert.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/xss/HTMLFilter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/xss/SQLFilter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/xss/XssFilter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/xss/XssHttpServletRequestWrapper$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/common/xss/XssHttpServletRequestWrapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/controller/BaseController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/controller/CoinController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/controller/LoginController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/controller/UserController$Params.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/controller/UserController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/controller/WalletController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/controller/WalletMentionController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/controller/WalletRechargeController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/controller/WalletTypeController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/dao/AddressPrestoreDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/dao/CoinDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/dao/SequenceDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/dao/UserDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/dao/WalletDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/dao/WalletMentionDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/dao/WalletRechargeDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/dao/WalletTypeDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/dto/LoginDto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/dto/TaskDto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/entity/AddressPrestoreEntity.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/entity/CoinEntity.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/entity/SequenceEntity.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/entity/UserEntity.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/entity/WalletEntity.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/entity/WalletMentionEntity.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/entity/WalletRechargeEntity.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/entity/WalletTypeEntity.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/intercept/MyFilter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/intercept/RequestInterceptor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/intercept/RequestWrapper$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/intercept/RequestWrapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/intercept/WebAppConfigurer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/service/AddressPrestoreService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/service/CoinService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/service/SequenceService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/service/UserService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/service/WalletMentionService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/service/WalletRechargeService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/service/WalletService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/service/WalletTypeService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/service/impl/AddressPrestoreServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/service/impl/CoinServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/service/impl/SequenceServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/service/impl/UserServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/service/impl/WalletMentionServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/service/impl/WalletRechargeServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/service/impl/WalletServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/service/impl/WalletTypeServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/com/tg/api/vo/UserVo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_api/target/classes/logback-spring.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boot_hjc.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/common/qiniuyun/Qiniuyun.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/common/qiniuyun/Qiniuyun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/common/xss/XssFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/common/xss/XssFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/controller/AnnountcementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/controller/AnnountcementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/controller/BanksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/controller/BanksController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/controller/UserEarningsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/controller/UserEarningsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/controller/UserVipDetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/controller/UserVipDetailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/controller/WalletController.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/controller/WalletController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/controller/WithdrawController.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/controller/WithdrawController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/entity/BanksEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/entity/BanksEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/entity/UserEarningsEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/entity/UserEarningsEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/entity/WalletTypeEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/entity/WalletTypeEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/service/impl/SigninServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/service/impl/SigninServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/service/impl/UserEarningsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/service/impl/UserEarningsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/service/impl/UserVipDetailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/service/impl/UserVipDetailServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/service/impl/WalletServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/service/impl/WalletServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/service/impl/WithdrawServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/service/impl/WithdrawServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/resources/application-devTest.yml" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/resources/application-devTest.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/resources/application-test.yml" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/resources/application-test.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/resources/logback-spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/resources/logback-spring.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/resources/mapper/SysDeptDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/resources/mapper/sys/SysDeptDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/resources/mapper/SysLogDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/resources/mapper/sys/SysLogDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/resources/mapper/SysMenuDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/resources/mapper/sys/SysMenuDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/resources/mapper/SysRoleDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/resources/mapper/sys/SysRoleDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/resources/mapper/SysRoleDeptDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/resources/mapper/sys/SysRoleDeptDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/resources/mapper/SysRoleMenuDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/resources/mapper/sys/SysRoleMenuDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/resources/mapper/SysUserDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/resources/mapper/sys/SysUserDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/resources/mapper/SysUserRoleDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/resources/mapper/sys/SysUserRoleDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/resources/qiniu_client.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/resources/statics/js/modules/business/announcementcopy.js" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/resources/statics/js/modules/business/announcementcopy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/resources/statics/js/modules/business/annountcement.js" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/resources/statics/js/modules/business/annountcement.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/resources/statics/js/modules/business/banks.js" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/resources/statics/js/modules/business/banks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/resources/statics/js/modules/business/signin.js" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/resources/statics/js/modules/business/signin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/resources/statics/js/modules/business/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/resources/statics/js/modules/business/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/resources/statics/js/modules/business/userearnings.js" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/resources/statics/js/modules/business/userearnings.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/resources/statics/js/modules/business/uservipdetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/resources/statics/js/modules/business/uservipdetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/resources/statics/js/modules/business/vipgradetype.js" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/resources/statics/js/modules/business/vipgradetype.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/resources/statics/js/modules/business/wallet.js" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/resources/statics/js/modules/business/wallet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/resources/statics/js/modules/business/withdraw.js" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/resources/statics/js/modules/business/withdraw.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/resources/templates/modules/business/annountcement.html" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/resources/templates/modules/business/annountcement.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/resources/templates/modules/business/banks.html" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/resources/templates/modules/business/banks.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/resources/templates/modules/business/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/resources/templates/modules/business/signin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/resources/templates/modules/business/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/resources/templates/modules/business/user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/resources/templates/modules/business/userearnings.html" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/resources/templates/modules/business/userearnings.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/resources/templates/modules/business/uservipdetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/resources/templates/modules/business/uservipdetail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/resources/templates/modules/business/vipgradetype.html" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/resources/templates/modules/business/vipgradetype.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/resources/templates/modules/business/wallet.html" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/resources/templates/modules/business/wallet.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_admin/src/main/resources/templates/modules/business/withdraw.html" beforeDir="false" afterPath="$PROJECT_DIR$/boot_admin/src/main/resources/templates/modules/business/withdraw.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/BootApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/BootApiApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/common/constant/ConstantConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/common/constant/ConstantConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/common/qiniuyun/Qiniuyun.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/common/qiniuyun/Qiniuyun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/controller/BanksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/controller/BanksController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/controller/BaseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/controller/SigninController.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/controller/SigninController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/controller/UserEarningsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/controller/UserEarningsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/controller/UserVipDetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/controller/UserVipDetailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/controller/WalletController.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/controller/WalletController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/controller/WalletTypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/controller/WalletTypeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/controller/WithdrawController.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/controller/WithdrawController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/entity/BanksEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/entity/BanksEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/entity/UserEarningsEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/entity/UserEarningsEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/entity/WalletEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/entity/WalletEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/entity/WalletTypeEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/entity/WalletTypeEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/entity/WithdrawEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/entity/WithdrawEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/service/UserEarningsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/service/UserEarningsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/service/WithdrawService.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/service/WithdrawService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/service/impl/AnnountcementServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/service/impl/AnnountcementServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/service/impl/SigninServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/service/impl/SigninServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/service/impl/UserEarningsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/service/impl/UserEarningsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/service/impl/UserVipDetailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/service/impl/UserVipDetailServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/service/impl/WithdrawServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/service/impl/WithdrawServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/vo/UserVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/vo/UserVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_api/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/boot_api/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_api/src/main/resources/application-devTest.yml" beforeDir="false" afterPath="$PROJECT_DIR$/boot_api/src/main/resources/application-devTest.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot_api/src/main/resources/application-test.yml" beforeDir="false" afterPath="$PROJECT_DIR$/boot_api/src/main/resources/application-test.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="HTTP Public Environment File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -24,51 +424,168 @@
     <option name="sortByType" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/boot_hjc" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1602055481451" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../boot_hs_test" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.43606254" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RebelAgentSelection">
+    <selection>jxr</selection>
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.tg.api.service.impl" />
+      <recent name="com.tg.api.service" />
+      <recent name="com.tg.api.entity" />
       <recent name="com.tg.api.dao" />
       <recent name="com.tg.api.controller" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\project\boot_hjc\boot_api\src\main\java\com\tg\api\common" />
-      <recent name="D:\project\boot_hjc\boot_api\src\main\java\com\tg\api\controller" />
-      <recent name="D:\project\boot_hjc\boot_api\src\main\java\com\tg\api" />
-      <recent name="D:\project\boot_hjc\boot_api\src\main\resources" />
+      <recent name="D:\project\boot_hjc\boot_api\src\main\java\com\tg\api\task" />
+      <recent name="D:\project\boot_hjc\boot_admin\src\main\resources\templates" />
+      <recent name="D:\project\boot_hjc\boot_admin\src\main\resources\templates\modules" />
+      <recent name="D:\project\boot_hjc\boot_admin\src\main\resources\statics\js\modules" />
+      <recent name="D:\project\boot_hjc\boot_admin\src\main\resources\statics\js" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="Spring Boot.BootApiApplication">
+    <configuration name="AdvertisingUserServiceImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.tg.admin.modules.business.service.impl.AdvertisingUserServiceImpl" />
+      <module name="boot_admin" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tg.admin.modules.business.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Task" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.tg.api.task.Task" />
+      <module name="api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tg.api.task.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WithdrawController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.tg.api.controller.WithdrawController" />
+      <module name="api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tg.api.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BootApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="boot_api" />
+    <configuration name="BootAdminApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="boot_admin" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.tg.admin.BootAdminApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BootAdminApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="boot_admin" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.tg.admin.BootAdminApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateResources" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateResources" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BootApiApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tg.api.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.tg.api.BootApiApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="BootApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="api" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.tg.api.BootApiApplication" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateResources" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateResources" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Task" />
+      <item itemvalue="Application.WithdrawController" />
+      <item itemvalue="Application.AdvertisingUserServiceImpl" />
+      <item itemvalue="Spring Boot.BootApiApplication" />
+      <item itemvalue="Spring Boot.BootApiApplication (1)" />
+      <item itemvalue="Spring Boot.BootAdminApplication" />
+      <item itemvalue="Spring Boot.BootAdminApplication (1)" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.AdvertisingUserServiceImpl" />
+        <item itemvalue="Application.WithdrawController" />
+        <item itemvalue="Application.Task" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SshConsoleOptionsProvider">
+    <option name="myEncoding" value="UTF-8" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="4e9ae817-685c-46eb-9f7a-88093e9b8584" name="Default Changelist" comment="" />
@@ -79,21 +596,193 @@
       <workItem from="1601208884755" duration="1335000" />
       <workItem from="1601217591260" duration="2947000" />
       <workItem from="1601257924426" duration="20034000" />
+      <workItem from="1601447876906" duration="9006000" />
+      <workItem from="1601541347560" duration="1904000" />
+      <workItem from="1601551159406" duration="7706000" />
+      <workItem from="1601633683062" duration="16186000" />
+      <workItem from="1601690179389" duration="38967000" />
+      <workItem from="1601769730210" duration="21987000" />
+      <workItem from="1601887498866" duration="21497000" />
+      <workItem from="1601910932965" duration="3374000" />
+      <workItem from="1601914381902" duration="957000" />
+      <workItem from="1602044447372" duration="869000" />
+      <workItem from="1602057013240" duration="19942000" />
+      <workItem from="1602129534286" duration="77114000" />
+      <workItem from="1602398303300" duration="9792000" />
+      <workItem from="1602473067035" duration="2365000" />
+      <workItem from="1602491228676" duration="575000" />
+      <workItem from="1602495802523" duration="3331000" />
+      <workItem from="1602499385703" duration="1103000" />
+      <workItem from="1602516140322" duration="2915000" />
+      <workItem from="1602562052019" duration="1353000" />
+      <workItem from="1602567207847" duration="5418000" />
+      <workItem from="1602578385968" duration="2848000" />
+      <workItem from="1602602335539" duration="483000" />
+      <workItem from="1602644478117" duration="4326000" />
+      <workItem from="1602730150639" duration="1603000" />
+      <workItem from="1602838526130" duration="13102000" />
+      <workItem from="1603038884502" duration="9244000" />
     </task>
+    <task id="LOCAL-00001" summary="黄金城--预约购买">
+      <created>1601454911031</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1601454911031</updated>
+    </task>
+    <task id="LOCAL-00002" summary="购买记录">
+      <created>1601648713369</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1601648713370</updated>
+    </task>
+    <task id="LOCAL-00003" summary="购买记录">
+      <created>1601649914013</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1601649914013</updated>
+    </task>
+    <task id="LOCAL-00004" summary="七牛云上传文件">
+      <created>1601694130283</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1601694130299</updated>
+    </task>
+    <task id="LOCAL-00005" summary="后台管理系统">
+      <created>1601745991119</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1601745991119</updated>
+    </task>
+    <task id="LOCAL-00006" summary="后台管理系统">
+      <created>1601746118839</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1601746118839</updated>
+    </task>
+    <task id="LOCAL-00007" summary="后台管理系统">
+      <created>1601773874933</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1601773874933</updated>
+    </task>
+    <task id="LOCAL-00008" summary="文件上传">
+      <created>1601816312510</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1601816312510</updated>
+    </task>
+    <task id="LOCAL-00009" summary="后台管理">
+      <created>1601830841251</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1601830841251</updated>
+    </task>
+    <task id="LOCAL-00010" summary="后台管理">
+      <created>1601832536662</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1601832536662</updated>
+    </task>
+    <task id="LOCAL-00011" summary="后台管理">
+      <created>1601914288744</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1601914288744</updated>
+    </task>
+    <task id="LOCAL-00012" summary="后台管理">
+      <created>1602055391153</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1602055391153</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <MESSAGE value="黄金城--预约购买" />
+    <MESSAGE value="购买记录" />
+    <MESSAGE value="七牛云上传文件" />
+    <MESSAGE value="后台管理系统" />
+    <MESSAGE value="文件上传" />
+    <MESSAGE value="后台管理" />
+    <option name="LAST_COMMIT_MESSAGE" value="后台管理" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="440" y="94" key="#Project_Structure" timestamp="1602730179624">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="94" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1602730179624" />
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602258923123">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602258923123" />
+    <state x="704" y="221" key="#com.intellij.ide.util.MemberChooser" timestamp="1602568860332">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="704" y="221" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1602568860332" />
+    <state x="621" y="455" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1602236322798">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="621" y="455" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602236322798" />
     <state x="736" y="413" width="447" height="221" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1601368151370">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="736" y="413" width="447" height="221" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1601368151370" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1601363671105">
+    <state x="726" y="234" key="#xdebugger.evaluate" timestamp="1602226955505">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1601363671104" />
+    <state x="726" y="234" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1602226955505" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1603085895903">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603085895903" />
     <state x="770" y="439" key="Github.CreateGistDialog" timestamp="1601368161893">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -102,29 +791,109 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="831" y="417" width="568" height="246" key="Github.ShareDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601364192448" />
-    <state width="1859" height="279" key="GridCell.Tab.0.bottom" timestamp="1601210224768">
+    <state width="1876" height="315" key="GridCell.Tab.0.bottom" timestamp="1603091189831">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1859" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601210224768" />
-    <state width="1859" height="279" key="GridCell.Tab.0.center" timestamp="1601210224768">
+    <state width="1876" height="315" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603091189831" />
+    <state width="1876" height="315" key="GridCell.Tab.0.center" timestamp="1603091189831">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1859" height="279" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601210224768" />
-    <state width="1859" height="279" key="GridCell.Tab.0.left" timestamp="1601210224768">
+    <state width="1876" height="315" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603091189831" />
+    <state width="1876" height="315" key="GridCell.Tab.0.left" timestamp="1603091189831">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1859" height="279" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601210224768" />
-    <state width="1859" height="279" key="GridCell.Tab.0.right" timestamp="1601210224768">
+    <state width="1876" height="315" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603091189831" />
+    <state width="1876" height="315" key="GridCell.Tab.0.right" timestamp="1603091189831">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1859" height="279" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601210224768" />
-    <state x="461" y="164" key="SettingsEditor" timestamp="1601368176266">
+    <state width="1876" height="315" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603091189831" />
+    <state width="1876" height="315" key="GridCell.Tab.1.bottom" timestamp="1603091189831">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1601368176266" />
-    <state x="593" y="180" key="new project wizard" timestamp="1601368181919">
+    <state width="1876" height="315" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603091189831" />
+    <state width="1876" height="315" key="GridCell.Tab.1.center" timestamp="1603091189831">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="593" y="180" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1601368181919" />
+    <state width="1876" height="315" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603091189831" />
+    <state width="1876" height="315" key="GridCell.Tab.1.left" timestamp="1603091189831">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="315" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603091189831" />
+    <state width="1876" height="315" key="GridCell.Tab.1.right" timestamp="1603091189831">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="315" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603091189831" />
+    <state width="1876" height="334" key="GridCell.Tab.2.bottom" timestamp="1602583205132">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="334" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602583205132" />
+    <state width="1876" height="334" key="GridCell.Tab.2.center" timestamp="1602583205131">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="334" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602583205131" />
+    <state width="1876" height="334" key="GridCell.Tab.2.left" timestamp="1602583205131">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="334" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602583205131" />
+    <state width="1876" height="334" key="GridCell.Tab.2.right" timestamp="1602583205132">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="334" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602583205132" />
+    <state x="461" y="164" key="SettingsEditor" timestamp="1602245299325">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1602245299325" />
+    <state x="662" y="223" width="596" height="594" key="find.popup" timestamp="1602571134631">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="662" y="223" width="596" height="594" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602571134631" />
+    <state x="593" y="180" key="new project wizard" timestamp="1602646290927">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="593" y="180" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1602646290927" />
+    <state x="627" y="248" key="run.anything.popup" timestamp="1602142589023">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="627" y="248" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602142589023" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1602580985721">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602580985721" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/service/impl/UserVipDetailServiceImpl.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/service/impl/AdvertisingUserServiceImpl.java</url>
+          <line>208</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/service/impl/WalletServiceImpl.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/service/impl/AdvertisingUserServiceImpl.java</url>
+          <line>172</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/boot_admin/src/main/java/com/tg/admin/modules/business/controller/AdvertisingController.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/boot_api/src/main/java/com/tg/api/service/impl/UserEarningsServiceImpl.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

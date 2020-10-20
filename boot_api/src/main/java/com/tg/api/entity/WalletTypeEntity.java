@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
@@ -32,5 +33,9 @@ public class WalletTypeEntity implements Serializable {
 	 * 可用，禁用
 	 */
 	private String status;
+
+	private BigDecimal fee;
+
+	private BigDecimal price;
 
 }

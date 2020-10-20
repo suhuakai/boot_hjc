@@ -20,9 +20,8 @@ public class AnnountcementServiceImpl extends ServiceImpl<AnnountcementDao, Anno
     public PageUtils queryPage(Map<String, Object> params) {
         IPage<AnnountcementEntity> page = this.page(
                 new Query<AnnountcementEntity>().getPage(params),
-                new QueryWrapper<AnnountcementEntity>()
+                new QueryWrapper<AnnountcementEntity>().orderByDesc("id")
         );
-
         return new PageUtils(page);
     }
 

@@ -12,17 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 
-
 /**
- * 
- *
  * @author Amy
  * @email 411382846@qq.com
  * @date 2020-09-29 13:21:15
  */
 @RestController
 @RequestMapping("api/uservipdetail")
-public class UserVipDetailController {
+public class UserVipDetailController extends BaseController {
     @Autowired
     private UserVipDetailService userVipDetailService;
 
@@ -30,25 +27,25 @@ public class UserVipDetailController {
      * 列表
      */
     @RequestMapping("/list")
-    public R list(@RequestParam Map<String, Object> params){
+    public R list(@RequestParam Map<String, Object> params) {
+        params.put("userId",getUserId());
         PageUtils page = userVipDetailService.queryPage(params);
         return R.ok(page);
     }
 
     /**
-     *购买升级
+     * 购买升级
+     *
      * @param userId
      * @param vipId
      * @return
      */
     @RequestMapping("/buyVip")
-    public R buyVip(Integer userId,Integer vipId){
-        LocalAssert.notNull(userId,"用户ID不能为空");
-        LocalAssert.notNull(vipId,"等级ID不能为空");
-        userVipDetailService.buyVip(userId,vipId);
-        return  R.ok();
+    public synchronized R buyVip(Integer userId, Integer vipId) {
+        LocalAssert.notNull(vipId, "等级ID不能为空");
+        userVipDetailService.buyVip(getUserId(), vipId);
+        return R.ok();
     }
-
 
 
 }

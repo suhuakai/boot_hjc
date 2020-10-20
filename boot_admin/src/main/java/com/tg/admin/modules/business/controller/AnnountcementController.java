@@ -1,5 +1,6 @@
 package com.tg.admin.modules.business.controller;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Map;
 
@@ -59,6 +60,7 @@ public class AnnountcementController {
     @RequestMapping("/save")
     @RequiresPermissions("business:annountcement:save")
     public R save(@RequestBody AnnountcementEntity annountcement){
+        annountcement.setDate(LocalDateTime.now());
         annountcementService.save(annountcement);
         return R.ok();
     }
